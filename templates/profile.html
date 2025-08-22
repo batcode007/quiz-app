@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+
+{% block title %}Profile - Cricket Quiz App{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto">
+    <div class="bg-white rounded-lg shadow-xl p-8 mb-8">
+        <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold text-gray-800">{{ user.full_name }}'s Profile</h2>
+            <p class="text-gray-600">Username: {{ user.username }}</p>
+            <p class="text-gray-600">Email: {{ user.email }}</p>
+            <p class="text-gray-500 text-sm">Joined: {{ user.created_at.strftime('%B %d, %Y') }}</p>
+            {% if user.last_login %}
+            <p class="text-gray-500 text-sm">Last Login: {{ user.last_login.strftime('%B %d, %Y %H:%M') }}</p>
+            {% endif %}
+        </div>
+
+        <!-- User Statistics -->
+        <div class="grid md:grid-cols-3 gap-6 mb-8">
+            <div class="bg-green-50 p-4 rounded-lg">
+                <h3 class="font-semibold text-green-800">Total Quizzes</h3>
+                <p class="text-2xl font-bold text-green-600">{{ user_stats.total_quizzes }}</p>
+            </div>
+            <div class="bg-blue-50 p-4 rounded-lg">
+                <h3 class="font-semibold text-blue-800">Average Score</h3>
+                <p class="text-2xl font-bold text-blue-600">{{ user_stats.average_score }}%</p>
+            </div>
+            <div class="bg-purple-50 p-4 rounded-lg">
+                <h3 class="font-semibold text-purple-800">Best Score</h3>
+                <p class="text-2xl font-bold text-purple-600">{{ user_stats.best_score }}/{{ quiz_history.items[0].total_questions if quiz_history.items else 10 }}</p>
+            </div>
+            <div class="bg-yellow-50 p-4 rounded-lg">
+                <h3 class="font-semibold text-yellow-800">Favorite Category</h3>
+                <p class="text-2xl font-bold text-yellow-600">{{ user_stats.favorite_category }}</p>
+            </div>
+            <div class="bg-red-50 p-4 rounded-lg">
+                <h3 class="font-semibold text-red-800">Total Time Spent</h3>
+                <p class="text-2xl font-bold text-red-600">{{ user_stats.total_time }}s</p>
+            </div>
+        </div>
+
+        <!-- Category-wise Performance -->
+        <div class="bg-white rounded-lg shadow p-6 mb-8">
+            <h3 class="text-xl font-bold text-gray-800 mb-4">Category Performance</h3>
+            <div class="overflow-x-auto">
+                <table class="min-w-full table-auto">
+                    <thead>
+                        <tr class="bg-gray-50">
+                            <th class="px-4 py-2 text-left">Category</th>
+                            <th class="px-4 py-2 text-center">Quizzes Taken</th>
+                            <th class="px-4 py-2 text-center">Average Score</th>
+                            <th class="px-4 py-2 text-center">Best Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for stat in category_stats %}
+                        <tr class="border-t">
+                            <td class="px-4 py-3 font-semibold">{{ stat.name }}</td>
+                            <td class="px-4 py-3 text-center">{{ stat.quiz_count }}</td>
+                            <td class="px-4 py-3 text-center">{{ stat.avg_score | round(1) }}%</td>
+                            <td class="px-4 py-3 text-center">{{ stat.best_score }}/{{ quiz_history.items[0].total_questions if quiz_history.items else 10 }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Quiz History -->
+        <div class="bg-white rounded-lg shadow p-6">
+            <h3 class="text-xl font-bold text-gray-800 mb-4">Quiz History</h3>
+            <div class="overflow-x-auto">
+                <table class="min-w-full table-auto">
+                    <thead>
+                        <tr class="bg-gray-50">
+                            <th class="px-4 py-2 text-left">Date</th>
+                            <th class="px-4 py-2 text-left">Category</th>
+                            <th class="px-4 py-2 text-center">Difficulty</th>
+                            <th class="px-4 py-2 text-center">Score</th>
+                            <th class="px-4 py-2 text-center">Time Taken</th>
+                            <th class="px-4 py-2 text-center">Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for quiz in quiz_history.items %}
+                        <tr class="border-t">
+                            <td class="px-4 py-3">{{ quiz.completed_at.strftime('%B %d, %Y %H:%M') }}</td>
+                            <td class="px-4 py-3">{{ quiz.category.name }}</td>
+                            <td class="px-4 py-3 text-center capitalize">{{ quiz.difficulty }}</td>
+                            <td class="px-4 py-3 text-center">{{ quiz.score }}/{{ quiz.total_questions }}</td>
+                            <td class="px-4 py-3 text-center">{{ quiz.time_taken }}s</td>
+                            <td class="px-4 py-3 text-center">
+                                <a href="{{ url_for('results', quiz_id=quiz.id) }}" 
+                                   class="text-blue-600 hover:text-blue-800">View</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination -->
+            {% if quiz_history.has_prev or quiz_history.has_next %}
+            <div class="flex justify-between mt-4">
+                {% if quiz_history.has_prev %}
+                <a href="{{ url_for('profile', page=quiz_history.prev_num) }}"
+                   class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+                    Previous
+                </a>
+                {% else %}
+                <div></div>
+                {% endif %}
+                
+                {% if quiz_history.has_next %}
+                <a href="{{ url_for('profile', page=quiz_history.next_num) }}"
+                   class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+                    Next
+                </a>
+                {% endif %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
