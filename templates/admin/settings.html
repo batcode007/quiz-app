@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz Settings</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Quiz Settings</h1>
+    <p><a href="{{ url_for('admin_dashboard') }}">Back to Dashboard</a></p>
+    
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    
+    <form method="POST">
+        <label for="quiz_length">Default Quiz Length (Number of Questions):</label>
+        <input type="number" id="quiz_length" name="quiz_length" value="{{ quiz_length }}" min="1" required>
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>

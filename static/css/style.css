@@ -1,0 +1,83 @@
+/* Custom styles for the cricket quiz app */
+
+.timer-progress {
+    transition: width 1s linear;
+}
+
+.question-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.question-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.option-button {
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+}
+
+.option-button:hover {
+    border-color: #10b981;
+    background-color: #f0fdf4;
+}
+
+.option-button.selected {
+    border-color: #10b981;
+    background-color: #dcfce7;
+}
+
+.option-button.correct {
+    border-color: #10b981;
+    background-color: #dcfce7;
+    color: #065f46;
+}
+
+.option-button.incorrect {
+    border-color: #ef4444;
+    background-color: #fef2f2;
+    color: #991b1b;
+}
+
+/* Loading spinner */
+.spinner {
+    border: 4px solid #f3f4f6;
+    border-top: 4px solid #10b981;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .question-card {
+        padding: 1rem;
+    }
+    
+    .option-button {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Timer animation */
+@keyframes timer-warning {
+    0% { background-color: #ef4444; }
+    50% { background-color: #dc2626; }
+    100% { background-color: #ef4444; }
+}
+
+.timer-warning {
+    animation: timer-warning 0.5s infinite;
+}

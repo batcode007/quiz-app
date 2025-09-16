@@ -1,0 +1,260 @@
+2025-08-25 16:00:19,393 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-08-25 16:00:19,393 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-25 16:00:19,393 - INFO -  * Restarting with stat
+2025-08-25 16:00:19,598 - WARNING -  * Debugger is active!
+2025-08-25 16:00:19,603 - INFO -  * Debugger PIN: 748-892-021
+2025-08-25 16:02:11,002 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/models.py', reloading
+2025-08-25 16:02:11,054 - INFO -  * Restarting with stat
+2025-08-25 16:02:11,280 - WARNING -  * Debugger is active!
+2025-08-25 16:02:11,285 - INFO -  * Debugger PIN: 748-892-021
+2025-08-25 16:02:17,339 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/models.py', reloading
+2025-08-25 16:02:17,391 - INFO -  * Restarting with stat
+2025-08-25 16:02:17,598 - WARNING -  * Debugger is active!
+2025-08-25 16:02:17,602 - INFO -  * Debugger PIN: 748-892-021
+2025-08-25 16:02:18,623 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/models.py', reloading
+2025-08-25 16:02:18,686 - INFO -  * Restarting with stat
+2025-08-25 16:02:18,892 - WARNING -  * Debugger is active!
+2025-08-25 16:02:18,896 - INFO -  * Debugger PIN: 748-892-021
+2025-08-25 16:02:22,940 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/models.py', reloading
+2025-08-25 16:02:22,987 - INFO -  * Restarting with stat
+2025-08-25 16:02:23,202 - WARNING -  * Debugger is active!
+2025-08-25 16:02:23,206 - INFO -  * Debugger PIN: 748-892-021
+2025-08-25 16:02:24,221 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/models.py', reloading
+2025-08-25 16:02:24,273 - INFO -  * Restarting with stat
+2025-08-25 16:02:24,481 - WARNING -  * Debugger is active!
+2025-08-25 16:02:24,485 - INFO -  * Debugger PIN: 748-892-021
+2025-08-25 16:02:26,809 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-08-25 16:02:26,809 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-25 16:02:26,809 - INFO -  * Restarting with stat
+2025-08-25 16:02:27,011 - WARNING -  * Debugger is active!
+2025-08-25 16:02:27,015 - INFO -  * Debugger PIN: 748-892-021
+2025-08-25 16:07:37,515 - INFO - 127.0.0.1 - - [25/Aug/2025 16:07:37] "[35m[1mGET /profile HTTP/1.1[0m" 500 -
+2025-08-25 16:07:37,527 - INFO - 127.0.0.1 - - [25/Aug/2025 16:07:37] "GET /profile?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-08-25 16:07:37,528 - INFO - 127.0.0.1 - - [25/Aug/2025 16:07:37] "GET /profile?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-08-25 16:07:37,538 - INFO - 127.0.0.1 - - [25/Aug/2025 16:07:37] "GET /profile?__debugger__=yes&cmd=resource&f=console.png&s=PXKj47UjhvHLCTMK0QEv HTTP/1.1" 200 -
+2025-08-25 16:07:37,542 - INFO - 127.0.0.1 - - [25/Aug/2025 16:07:37] "GET /profile?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-09-01 19:55:38,210 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-01 19:55:38,210 - INFO - [33mPress CTRL+C to quit[0m
+2025-09-01 19:55:38,211 - INFO -  * Restarting with stat
+2025-09-01 19:55:38,446 - WARNING -  * Debugger is active!
+2025-09-01 19:55:38,455 - INFO -  * Debugger PIN: 748-892-021
+2025-09-01 19:55:55,645 - INFO - 127.0.0.1 - - [01/Sep/2025 19:55:55] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-09-01 19:55:55,659 - INFO - 127.0.0.1 - - [01/Sep/2025 19:55:55] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-09-01 19:55:55,662 - INFO - 127.0.0.1 - - [01/Sep/2025 19:55:55] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-09-01 19:56:00,621 - INFO - 127.0.0.1 - - [01/Sep/2025 19:56:00] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=5WM77ozEDdy79uOqcK1C HTTP/1.1" 200 -
+2025-09-01 19:56:00,626 - INFO - 127.0.0.1 - - [01/Sep/2025 19:56:00] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-09-01 19:56:28,675 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-01 19:56:28,675 - INFO - [33mPress CTRL+C to quit[0m
+2025-09-01 19:56:28,676 - INFO -  * Restarting with stat
+2025-09-01 19:56:28,876 - WARNING -  * Debugger is active!
+2025-09-01 19:56:28,881 - INFO -  * Debugger PIN: 748-892-021
+2025-09-01 19:56:31,643 - INFO - 127.0.0.1 - - [01/Sep/2025 19:56:31] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-09-01 19:56:31,670 - INFO - 127.0.0.1 - - [01/Sep/2025 19:56:31] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-09-01 19:56:31,674 - INFO - 127.0.0.1 - - [01/Sep/2025 19:56:31] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-09-01 19:56:31,694 - INFO - 127.0.0.1 - - [01/Sep/2025 19:56:31] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=KVal4H6ULmhxtCcTEKaL HTTP/1.1" 200 -
+2025-09-01 19:56:32,552 - INFO - 127.0.0.1 - - [01/Sep/2025 19:56:32] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-09-01 20:32:04,627 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-01 20:32:04,628 - INFO - [33mPress CTRL+C to quit[0m
+2025-09-01 20:32:04,628 - INFO -  * Restarting with stat
+2025-09-01 20:32:04,864 - WARNING -  * Debugger is active!
+2025-09-01 20:32:04,875 - INFO -  * Debugger PIN: 748-892-021
+2025-09-01 20:51:31,120 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-01 20:51:31,121 - INFO - [33mPress CTRL+C to quit[0m
+2025-09-01 20:51:31,121 - INFO -  * Restarting with stat
+2025-09-01 20:51:31,325 - WARNING -  * Debugger is active!
+2025-09-01 20:51:31,331 - INFO -  * Debugger PIN: 748-892-021
+2025-09-01 20:51:35,884 - INFO - 127.0.0.1 - - [01/Sep/2025 20:51:35] "GET / HTTP/1.1" 200 -
+2025-09-01 20:51:35,910 - INFO - 127.0.0.1 - - [01/Sep/2025 20:51:35] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-09-01 20:51:35,910 - INFO - 127.0.0.1 - - [01/Sep/2025 20:51:35] "GET /static/js/app.js HTTP/1.1" 200 -
+2025-09-01 23:17:11,436 - INFO - 127.0.0.1 - - [01/Sep/2025 23:17:11] "[35m[1mGET /admin HTTP/1.1[0m" 500 -
+2025-09-01 23:17:11,448 - INFO - 127.0.0.1 - - [01/Sep/2025 23:17:11] "GET /admin?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-09-01 23:17:11,449 - INFO - 127.0.0.1 - - [01/Sep/2025 23:17:11] "GET /admin?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-09-01 23:17:11,456 - INFO - 127.0.0.1 - - [01/Sep/2025 23:17:11] "GET /admin?__debugger__=yes&cmd=resource&f=console.png&s=gv9Cc6QFCwQm0XGDwC3S HTTP/1.1" 200 -
+2025-09-01 23:17:11,463 - INFO - 127.0.0.1 - - [01/Sep/2025 23:17:11] "GET /admin?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-09-01 23:18:25,620 - INFO - 127.0.0.1 - - [01/Sep/2025 23:18:25] "GET /admin HTTP/1.1" 200 -
+2025-09-01 23:18:25,634 - INFO - 127.0.0.1 - - [01/Sep/2025 23:18:25] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-01 23:18:25,637 - INFO - 127.0.0.1 - - [01/Sep/2025 23:18:25] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-01 23:19:36,304 - INFO - 127.0.0.1 - - [01/Sep/2025 23:19:36] "POST /admin HTTP/1.1" 200 -
+2025-09-01 23:19:36,325 - INFO - 127.0.0.1 - - [01/Sep/2025 23:19:36] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-01 23:19:36,325 - INFO - 127.0.0.1 - - [01/Sep/2025 23:19:36] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-01 23:19:41,421 - INFO - 127.0.0.1 - - [01/Sep/2025 23:19:41] "POST /admin HTTP/1.1" 200 -
+2025-09-01 23:19:41,438 - INFO - 127.0.0.1 - - [01/Sep/2025 23:19:41] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-01 23:19:41,439 - INFO - 127.0.0.1 - - [01/Sep/2025 23:19:41] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-01 23:20:19,099 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/app.py', reloading
+2025-09-01 23:20:19,159 - INFO -  * Restarting with stat
+2025-09-01 23:20:19,506 - WARNING -  * Debugger is active!
+2025-09-01 23:20:19,512 - INFO -  * Debugger PIN: 748-892-021
+2025-09-01 23:20:20,532 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/app.py', reloading
+2025-09-01 23:20:20,577 - INFO -  * Restarting with stat
+2025-09-01 23:20:20,795 - WARNING -  * Debugger is active!
+2025-09-01 23:20:20,799 - INFO -  * Debugger PIN: 748-892-021
+2025-09-01 23:20:26,373 - INFO - 127.0.0.1 - - [01/Sep/2025 23:20:26] "POST /admin HTTP/1.1" 200 -
+2025-09-01 23:20:26,396 - INFO - 127.0.0.1 - - [01/Sep/2025 23:20:26] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-01 23:20:26,396 - INFO - 127.0.0.1 - - [01/Sep/2025 23:20:26] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-01 23:20:40,338 - INFO - 127.0.0.1 - - [01/Sep/2025 23:20:40] "POST /admin HTTP/1.1" 200 -
+2025-09-01 23:20:40,350 - INFO - 127.0.0.1 - - [01/Sep/2025 23:20:40] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-01 23:20:40,351 - INFO - 127.0.0.1 - - [01/Sep/2025 23:20:40] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-01 23:20:44,257 - INFO - 127.0.0.1 - - [01/Sep/2025 23:20:44] "GET / HTTP/1.1" 200 -
+2025-09-01 23:20:44,273 - INFO - 127.0.0.1 - - [01/Sep/2025 23:20:44] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-01 23:20:44,274 - INFO - 127.0.0.1 - - [01/Sep/2025 23:20:44] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-01 23:20:47,951 - INFO - 127.0.0.1 - - [01/Sep/2025 23:20:47] "GET /admin HTTP/1.1" 200 -
+2025-09-01 23:20:47,971 - INFO - 127.0.0.1 - - [01/Sep/2025 23:20:47] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-01 23:20:47,971 - INFO - 127.0.0.1 - - [01/Sep/2025 23:20:47] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-01 23:20:51,450 - INFO - 127.0.0.1 - - [01/Sep/2025 23:20:51] "POST /admin HTTP/1.1" 200 -
+2025-09-01 23:20:51,472 - INFO - 127.0.0.1 - - [01/Sep/2025 23:20:51] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-01 23:20:51,472 - INFO - 127.0.0.1 - - [01/Sep/2025 23:20:51] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-01 23:21:39,678 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/app.py', reloading
+2025-09-01 23:21:39,739 - INFO -  * Restarting with stat
+2025-09-01 23:21:40,077 - WARNING -  * Debugger is active!
+2025-09-01 23:21:40,082 - INFO -  * Debugger PIN: 748-892-021
+2025-09-01 23:21:42,892 - INFO - 127.0.0.1 - - [01/Sep/2025 23:21:42] "[32mPOST /admin HTTP/1.1[0m" 302 -
+2025-09-01 23:21:42,958 - INFO - 127.0.0.1 - - [01/Sep/2025 23:21:42] "[35m[1mGET /admin/dashboard HTTP/1.1[0m" 500 -
+2025-09-01 23:21:42,982 - INFO - 127.0.0.1 - - [01/Sep/2025 23:21:42] "GET /admin/dashboard?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-09-01 23:21:42,983 - INFO - 127.0.0.1 - - [01/Sep/2025 23:21:42] "GET /admin/dashboard?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-09-01 23:21:43,043 - INFO - 127.0.0.1 - - [01/Sep/2025 23:21:43] "GET /admin/dashboard?__debugger__=yes&cmd=resource&f=console.png&s=ouZ13cMeOnTcZlBzKp4y HTTP/1.1" 200 -
+2025-09-01 23:21:43,048 - INFO - 127.0.0.1 - - [01/Sep/2025 23:21:43] "GET /admin/dashboard?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-09-01 23:22:22,292 - INFO - 127.0.0.1 - - [01/Sep/2025 23:22:22] "GET /admin/dashboard HTTP/1.1" 200 -
+2025-09-01 23:22:22,310 - INFO - 127.0.0.1 - - [01/Sep/2025 23:22:22] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-01 23:22:22,310 - INFO - 127.0.0.1 - - [01/Sep/2025 23:22:22] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-01 23:22:28,976 - INFO - 127.0.0.1 - - [01/Sep/2025 23:22:28] "GET /admin/add_question HTTP/1.1" 200 -
+2025-09-01 23:22:28,986 - INFO - 127.0.0.1 - - [01/Sep/2025 23:22:28] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-01 23:22:28,986 - INFO - 127.0.0.1 - - [01/Sep/2025 23:22:28] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-01 23:22:31,464 - INFO - 127.0.0.1 - - [01/Sep/2025 23:22:31] "GET /admin/dashboard HTTP/1.1" 200 -
+2025-09-01 23:22:31,482 - INFO - 127.0.0.1 - - [01/Sep/2025 23:22:31] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-01 23:22:31,482 - INFO - 127.0.0.1 - - [01/Sep/2025 23:22:31] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-01 23:22:39,842 - INFO - 127.0.0.1 - - [01/Sep/2025 23:22:39] "GET / HTTP/1.1" 200 -
+2025-09-01 23:22:39,857 - INFO - 127.0.0.1 - - [01/Sep/2025 23:22:39] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-01 23:22:39,858 - INFO - 127.0.0.1 - - [01/Sep/2025 23:22:39] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-01 23:22:51,060 - INFO - 127.0.0.1 - - [01/Sep/2025 23:22:51] "[35m[1mGET /profile HTTP/1.1[0m" 500 -
+2025-09-01 23:22:51,071 - INFO - 127.0.0.1 - - [01/Sep/2025 23:22:51] "GET /profile?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-09-01 23:22:51,072 - INFO - 127.0.0.1 - - [01/Sep/2025 23:22:51] "GET /profile?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-09-01 23:22:51,078 - INFO - 127.0.0.1 - - [01/Sep/2025 23:22:51] "GET /profile?__debugger__=yes&cmd=resource&f=console.png&s=ouZ13cMeOnTcZlBzKp4y HTTP/1.1" 200 -
+2025-09-01 23:22:51,083 - INFO - 127.0.0.1 - - [01/Sep/2025 23:22:51] "GET /profile?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-09-01 23:24:41,299 - INFO - 127.0.0.1 - - [01/Sep/2025 23:24:41] "[35m[1mGET /profile HTTP/1.1[0m" 500 -
+2025-09-01 23:24:41,312 - INFO - 127.0.0.1 - - [01/Sep/2025 23:24:41] "[36mGET /profile?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-09-01 23:24:41,313 - INFO - 127.0.0.1 - - [01/Sep/2025 23:24:41] "[36mGET /profile?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-09-01 23:24:41,320 - INFO - 127.0.0.1 - - [01/Sep/2025 23:24:41] "[36mGET /profile?__debugger__=yes&cmd=resource&f=console.png&s=ouZ13cMeOnTcZlBzKp4y HTTP/1.1[0m" 304 -
+2025-09-01 23:24:41,326 - INFO - 127.0.0.1 - - [01/Sep/2025 23:24:41] "[36mGET /profile?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-09-01 23:27:07,578 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/app.py', reloading
+2025-09-01 23:27:07,659 - INFO -  * Restarting with stat
+2025-09-01 23:27:08,024 - WARNING -  * Debugger is active!
+2025-09-01 23:27:08,029 - INFO -  * Debugger PIN: 748-892-021
+2025-09-01 23:27:10,336 - INFO - 127.0.0.1 - - [01/Sep/2025 23:27:10] "[35m[1mGET /profile HTTP/1.1[0m" 500 -
+2025-09-01 23:27:10,361 - INFO - 127.0.0.1 - - [01/Sep/2025 23:27:10] "[36mGET /profile?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-09-01 23:27:10,362 - INFO - 127.0.0.1 - - [01/Sep/2025 23:27:10] "[36mGET /profile?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-09-01 23:27:10,372 - INFO - 127.0.0.1 - - [01/Sep/2025 23:27:10] "GET /profile?__debugger__=yes&cmd=resource&f=console.png&s=8Wk13uvMKS9nRKVeBOzA HTTP/1.1" 200 -
+2025-09-01 23:27:10,378 - INFO - 127.0.0.1 - - [01/Sep/2025 23:27:10] "[36mGET /profile?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-09-01 23:28:33,988 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/app.py', reloading
+2025-09-01 23:28:34,036 - INFO -  * Restarting with stat
+2025-09-01 23:28:34,413 - WARNING -  * Debugger is active!
+2025-09-01 23:28:34,417 - INFO -  * Debugger PIN: 748-892-021
+2025-09-01 23:29:03,733 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/app.py', reloading
+2025-09-01 23:29:03,803 - INFO -  * Restarting with stat
+2025-09-01 23:29:04,141 - WARNING -  * Debugger is active!
+2025-09-01 23:29:04,145 - INFO -  * Debugger PIN: 748-892-021
+2025-09-01 23:29:06,262 - INFO - 127.0.0.1 - - [01/Sep/2025 23:29:06] "GET /profile HTTP/1.1" 200 -
+2025-09-01 23:29:06,286 - INFO - 127.0.0.1 - - [01/Sep/2025 23:29:06] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-01 23:29:06,286 - INFO - 127.0.0.1 - - [01/Sep/2025 23:29:06] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-01 23:29:11,820 - INFO - 127.0.0.1 - - [01/Sep/2025 23:29:11] "GET /results/1 HTTP/1.1" 200 -
+2025-09-01 23:29:11,837 - INFO - 127.0.0.1 - - [01/Sep/2025 23:29:11] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-01 23:29:11,837 - INFO - 127.0.0.1 - - [01/Sep/2025 23:29:11] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-01 23:29:18,266 - INFO - 127.0.0.1 - - [01/Sep/2025 23:29:18] "GET / HTTP/1.1" 200 -
+2025-09-01 23:29:18,277 - INFO - 127.0.0.1 - - [01/Sep/2025 23:29:18] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-01 23:29:18,279 - INFO - 127.0.0.1 - - [01/Sep/2025 23:29:18] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-01 23:29:21,367 - INFO - 127.0.0.1 - - [01/Sep/2025 23:29:21] "GET / HTTP/1.1" 200 -
+2025-09-01 23:29:21,380 - INFO - 127.0.0.1 - - [01/Sep/2025 23:29:21] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-01 23:29:21,380 - INFO - 127.0.0.1 - - [01/Sep/2025 23:29:21] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-01 23:29:22,695 - INFO - 127.0.0.1 - - [01/Sep/2025 23:29:22] "GET / HTTP/1.1" 200 -
+2025-09-01 23:29:22,712 - INFO - 127.0.0.1 - - [01/Sep/2025 23:29:22] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-01 23:29:22,713 - INFO - 127.0.0.1 - - [01/Sep/2025 23:29:22] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-01 23:29:23,980 - INFO - 127.0.0.1 - - [01/Sep/2025 23:29:23] "GET /profile HTTP/1.1" 200 -
+2025-09-01 23:29:23,997 - INFO - 127.0.0.1 - - [01/Sep/2025 23:29:23] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-01 23:29:23,999 - INFO - 127.0.0.1 - - [01/Sep/2025 23:29:23] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-01 23:29:30,515 - INFO - 127.0.0.1 - - [01/Sep/2025 23:29:30] "GET /admin HTTP/1.1" 200 -
+2025-09-01 23:29:30,528 - INFO - 127.0.0.1 - - [01/Sep/2025 23:29:30] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-01 23:29:30,528 - INFO - 127.0.0.1 - - [01/Sep/2025 23:29:30] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-01 23:29:32,597 - INFO - 127.0.0.1 - - [01/Sep/2025 23:29:32] "GET / HTTP/1.1" 200 -
+2025-09-01 23:29:32,612 - INFO - 127.0.0.1 - - [01/Sep/2025 23:29:32] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-01 23:29:32,614 - INFO - 127.0.0.1 - - [01/Sep/2025 23:29:32] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-01 23:29:34,154 - INFO - 127.0.0.1 - - [01/Sep/2025 23:29:34] "GET / HTTP/1.1" 200 -
+2025-09-01 23:29:34,166 - INFO - 127.0.0.1 - - [01/Sep/2025 23:29:34] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-01 23:29:34,166 - INFO - 127.0.0.1 - - [01/Sep/2025 23:29:34] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-01 23:29:35,809 - INFO - 127.0.0.1 - - [01/Sep/2025 23:29:35] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-09-01 23:29:35,824 - INFO - 127.0.0.1 - - [01/Sep/2025 23:29:35] "[35m[1mGET /login HTTP/1.1[0m" 500 -
+2025-09-01 23:29:35,840 - INFO - 127.0.0.1 - - [01/Sep/2025 23:29:35] "GET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-09-01 23:29:35,841 - INFO - 127.0.0.1 - - [01/Sep/2025 23:29:35] "GET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-09-01 23:29:35,847 - INFO - 127.0.0.1 - - [01/Sep/2025 23:29:35] "GET /login?__debugger__=yes&cmd=resource&f=console.png&s=wf9aiUIk5eqdtluFqaUJ HTTP/1.1" 200 -
+2025-09-01 23:29:35,852 - INFO - 127.0.0.1 - - [01/Sep/2025 23:29:35] "GET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-09-01 23:32:48,628 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/app.py', reloading
+2025-09-01 23:32:48,680 - INFO -  * Restarting with stat
+2025-09-01 23:32:49,049 - WARNING -  * Debugger is active!
+2025-09-01 23:32:49,055 - INFO -  * Debugger PIN: 748-892-021
+2025-09-01 23:32:50,538 - INFO - 127.0.0.1 - - [01/Sep/2025 23:32:50] "[35m[1mGET /login HTTP/1.1[0m" 500 -
+2025-09-01 23:32:50,552 - INFO - 127.0.0.1 - - [01/Sep/2025 23:32:50] "[36mGET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-09-01 23:32:50,552 - INFO - 127.0.0.1 - - [01/Sep/2025 23:32:50] "[36mGET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-09-01 23:32:50,555 - INFO - 127.0.0.1 - - [01/Sep/2025 23:32:50] "GET /login?__debugger__=yes&cmd=resource&f=console.png&s=HX5TBkva1z3WhrhXFXoT HTTP/1.1" 200 -
+2025-09-01 23:32:50,559 - INFO - 127.0.0.1 - - [01/Sep/2025 23:32:50] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-09-01 23:32:52,813 - INFO - 127.0.0.1 - - [01/Sep/2025 23:32:52] "[35m[1mGET /login HTTP/1.1[0m" 500 -
+2025-09-01 23:32:52,821 - INFO - 127.0.0.1 - - [01/Sep/2025 23:32:52] "GET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-09-01 23:32:52,822 - INFO - 127.0.0.1 - - [01/Sep/2025 23:32:52] "GET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-09-01 23:32:52,826 - INFO - 127.0.0.1 - - [01/Sep/2025 23:32:52] "GET /login?__debugger__=yes&cmd=resource&f=console.png&s=HX5TBkva1z3WhrhXFXoT HTTP/1.1" 200 -
+2025-09-01 23:32:52,829 - INFO - 127.0.0.1 - - [01/Sep/2025 23:32:52] "GET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-09-01 23:33:09,270 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/app.py', reloading
+2025-09-01 23:33:09,326 - INFO -  * Restarting with stat
+2025-09-01 23:33:09,648 - WARNING -  * Debugger is active!
+2025-09-01 23:33:09,653 - INFO -  * Debugger PIN: 748-892-021
+2025-09-01 23:33:12,690 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/app.py', reloading
+2025-09-01 23:33:12,750 - INFO -  * Restarting with stat
+2025-09-01 23:33:13,017 - WARNING -  * Debugger is active!
+2025-09-01 23:33:13,022 - INFO -  * Debugger PIN: 748-892-021
+2025-09-01 23:33:13,624 - INFO - 127.0.0.1 - - [01/Sep/2025 23:33:13] "GET /login HTTP/1.1" 200 -
+2025-09-01 23:33:13,645 - INFO - 127.0.0.1 - - [01/Sep/2025 23:33:13] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-01 23:33:13,645 - INFO - 127.0.0.1 - - [01/Sep/2025 23:33:13] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-01 23:33:13,661 - INFO - 127.0.0.1 - - [01/Sep/2025 23:33:13] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-09-01 23:33:18,923 - INFO - 127.0.0.1 - - [01/Sep/2025 23:33:18] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2025-09-01 23:33:20,911 - INFO - 127.0.0.1 - - [01/Sep/2025 23:33:20] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2025-09-01 23:33:26,607 - INFO - 127.0.0.1 - - [01/Sep/2025 23:33:26] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2025-09-01 23:33:26,993 - INFO - 127.0.0.1 - - [01/Sep/2025 23:33:26] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2025-09-01 23:33:27,180 - INFO - 127.0.0.1 - - [01/Sep/2025 23:33:27] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2025-09-01 23:33:27,313 - INFO - 127.0.0.1 - - [01/Sep/2025 23:33:27] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2025-09-01 23:33:33,045 - INFO - 127.0.0.1 - - [01/Sep/2025 23:33:33] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2025-09-01 23:33:34,914 - INFO - 127.0.0.1 - - [01/Sep/2025 23:33:34] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2025-09-01 23:33:38,755 - INFO - 127.0.0.1 - - [01/Sep/2025 23:33:38] "[35m[1mGET /register HTTP/1.1[0m" 500 -
+2025-09-01 23:33:38,774 - INFO - 127.0.0.1 - - [01/Sep/2025 23:33:38] "GET /register?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-09-01 23:33:38,776 - INFO - 127.0.0.1 - - [01/Sep/2025 23:33:38] "GET /register?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-09-01 23:33:38,784 - INFO - 127.0.0.1 - - [01/Sep/2025 23:33:38] "GET /register?__debugger__=yes&cmd=resource&f=console.png&s=JRJDa5EywZKUiZcnhYXB HTTP/1.1" 200 -
+2025-09-01 23:33:38,790 - INFO - 127.0.0.1 - - [01/Sep/2025 23:33:38] "GET /register?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-09-01 23:34:08,635 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/app.py', reloading
+2025-09-01 23:34:08,705 - INFO -  * Restarting with stat
+2025-09-01 23:34:09,113 - WARNING -  * Debugger is active!
+2025-09-01 23:34:09,121 - INFO -  * Debugger PIN: 748-892-021
+2025-09-01 23:34:09,466 - INFO - 127.0.0.1 - - [01/Sep/2025 23:34:09] "GET /register HTTP/1.1" 200 -
+2025-09-01 23:34:09,483 - INFO - 127.0.0.1 - - [01/Sep/2025 23:34:09] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-01 23:34:09,483 - INFO - 127.0.0.1 - - [01/Sep/2025 23:34:09] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-01 23:34:16,140 - INFO - 127.0.0.1 - - [01/Sep/2025 23:34:16] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2025-09-01 23:35:35,025 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/app.py', reloading
+2025-09-01 23:35:35,091 - INFO -  * Restarting with stat
+2025-09-01 23:35:35,472 - WARNING -  * Debugger is active!
+2025-09-01 23:35:35,480 - INFO -  * Debugger PIN: 748-892-021
+2025-09-01 23:35:38,996 - INFO - 127.0.0.1 - - [01/Sep/2025 23:35:38] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-01 23:35:38,998 - INFO - 127.0.0.1 - - [01/Sep/2025 23:35:38] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-01 23:35:42,908 - INFO - 127.0.0.1 - - [01/Sep/2025 23:35:42] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2025-09-01 23:37:04,503 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/app.py', reloading
+2025-09-01 23:37:04,576 - INFO -  * Restarting with stat
+2025-09-01 23:37:04,985 - WARNING -  * Debugger is active!
+2025-09-01 23:37:04,992 - INFO -  * Debugger PIN: 748-892-021
+2025-09-01 23:37:07,616 - INFO - 127.0.0.1 - - [01/Sep/2025 23:37:07] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2025-09-01 23:37:08,557 - INFO - 127.0.0.1 - - [01/Sep/2025 23:37:08] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2025-09-01 23:37:08,898 - INFO - 127.0.0.1 - - [01/Sep/2025 23:37:08] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2025-09-01 23:37:55,619 - INFO - 127.0.0.1 - - [01/Sep/2025 23:37:55] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2025-09-01 23:41:05,220 - INFO - 127.0.0.1 - - [01/Sep/2025 23:41:05] "GET /login HTTP/1.1" 200 -
+2025-09-01 23:41:05,237 - INFO - 127.0.0.1 - - [01/Sep/2025 23:41:05] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-01 23:41:05,237 - INFO - 127.0.0.1 - - [01/Sep/2025 23:41:05] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-09-01 23:41:05,237 - INFO - 127.0.0.1 - - [01/Sep/2025 23:41:05] "GET /static/js/app.js HTTP/1.1" 200 -
+2025-09-01 23:41:12,626 - INFO - 127.0.0.1 - - [01/Sep/2025 23:41:12] "[35m[1mPOST /login HTTP/1.1[0m" 500 -

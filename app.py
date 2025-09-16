@@ -1,0 +1,395 @@
+from flask import Flask, render_template, request, redirect, url_for, flash, session, jsonify
+from flask_migrate import Migrate
+from werkzeug.security import check_password_hash
+from datetime import datetime
+import os
+import json
+import random
+from dotenv import load_dotenv
+import logging
+
+from models import db  # Import db from models.py
+
+# Create Flask app instance
+app = Flask(__name__)
+load_dotenv()
+
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'your-secret-key')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'sqlite:///quiz.db')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['ADMIN_USERNAME'] = os.getenv('ADMIN_USERNAME', 'admin')
+app.config['ADMIN_PASSWORD_HASH'] = os.getenv('ADMIN_PASSWORD_HASH', 'admin')
+
+migrate = Migrate()
+
+def create_app():
+    # Initialize the app with SQLAlchemy using the db from models.py
+    db.init_app(app)
+    migrate.init_app(app, db)
+    
+    # Import models after app initialization to avoid circular imports
+    with app.app_context():
+        from models import User, Sport, Category, Question, Quiz, QuizAnswer, Settings
+        
+        # Logging configuration
+        logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+        
+        # Register routes
+        @app.route('/')
+        def index():
+            if 'user_id' in session:
+                user = User.query.get(session['user_id'])
+                sports = Sport.query.all()
+                return render_template('index.html', user=user, sports=sports)
+            return redirect(url_for('login'))
+
+        @app.route('/register', methods=['GET', 'POST'])
+        def register():
+            if request.method == 'POST':
+                username = request.form['username']
+                email = request.form['email']
+                password = request.form['password']
+                full_name = request.form['full_name']
+                
+                if User.query.filter_by(username=username).first() or User.query.filter_by(email=email).first():
+                    flash('Username or email already exists')
+                    return redirect(url_for('register'))
+                
+                user = User(username=username, email=email, full_name=full_name)
+                user.set_password(password)
+                db.session.add(user)
+                db.session.commit()
+                flash('Registration successful! Please log in.')
+                return redirect(url_for('login'))
+            
+            return render_template('auth/register.html')
+
+        @app.route('/login', methods=['GET', 'POST'])
+        def login():
+            print('check1')
+            if request.method == 'POST':
+                username = request.form['username']
+                password = request.form['password']
+                user = User.query.filter_by(username=username).first()
+                print(f'user {user}')
+                print(f'password {password}')
+                if user and user.check_password(password):
+                    session['user_id'] = user.id
+                    user.last_login = datetime.utcnow()
+                    db.session.commit()
+                    return redirect(url_for('index'))
+                flash('Invalid username or password')
+            
+            return render_template('auth/login.html')
+
+        @app.route('/logout')
+        def logout():
+            session.pop('user_id', None)
+            return redirect(url_for('login'))
+
+        @app.route('/admin', methods=['GET', 'POST'])
+        def admin_login():
+            if request.method == 'POST':
+                username = request.form['username']
+                password = request.form['password']
+                
+                # if username == app.config['ADMIN_USERNAME'] and check_password_hash(app.config['ADMIN_PASSWORD_HASH'], password):
+                if username == app.config['ADMIN_USERNAME'] and password == app.config['ADMIN_PASSWORD_HASH']:
+                    session['admin'] = True
+                    return redirect(url_for('admin_dashboard'))
+                flash('Invalid credentials')
+            
+            return render_template('admin/login.html')
+
+        @app.route('/admin/logout')
+        def admin_logout():
+            session.pop('admin', None)
+            return redirect(url_for('admin_login'))
+
+        @app.route('/admin/dashboard')
+        def admin_dashboard():
+            if not session.get('admin'):
+                return redirect(url_for('admin_login'))
+            
+            total_users = User.query.count()
+            total_quizzes = Quiz.query.count()
+            total_questions = Question.query.count()
+            quiz_length_setting = Settings.query.filter_by(key='default_quiz_length').first()
+            categories = Category.query.all()
+            return render_template('admin/dashboard.html', 
+                                 total_users=total_users,
+                                 total_quizzes=total_quizzes,
+                                 total_questions=total_questions,
+                                 categories=categories,
+                                 quiz_length=quiz_length_setting.value if quiz_length_setting else 10)
+
+        @app.route('/admin/settings', methods=['GET', 'POST'])
+        def admin_settings():
+            if not session.get('admin'):
+                return redirect(url_for('admin_login'))
+            
+            if request.method == 'POST':
+                quiz_length = request.form.get('quiz_length', type=int)
+                if quiz_length and quiz_length > 0:
+                    setting = Settings.query.filter_by(key='default_quiz_length').first()
+                    if not setting:
+                        setting = Settings(key='default_quiz_length', value=str(quiz_length), description='Default number of questions per quiz')
+                        db.session.add(setting)
+                    else:
+                        setting.value = str(quiz_length)
+                    db.session.commit()
+                    flash('Quiz length updated successfully!')
+                    return redirect(url_for('admin_dashboard'))
+                flash('Invalid quiz length')
+            
+            quiz_length_setting = Settings.query.filter_by(key='default_quiz_length').first()
+            return render_template('admin/settings.html', quiz_length=quiz_length_setting.value if quiz_length_setting else 10)
+
+        @app.route('/admin/add_question', methods=['GET', 'POST'])
+        def add_question():
+            if not session.get('admin'):
+                return redirect(url_for('admin_login'))
+            
+            if request.method == 'POST':
+                text = request.form['text']
+                question_type = request.form['question_type']
+                difficulty = request.form['difficulty']
+                correct_answer = request.form['correct_answer']
+                explanation = request.form['explanation']
+                category_id = request.form['category_id']
+                
+                options = []
+                if question_type == 'mcq':
+                    options = [
+                        request.form.get('option1', ''),
+                        request.form.get('option2', ''),
+                        request.form.get('option3', ''),
+                        request.form.get('option4', '')
+                    ]
+                    options = [opt for opt in options if opt]
+                
+                question = Question(
+                    text=text,
+                    question_type=question_type,
+                    difficulty=difficulty,
+                    correct_answer=correct_answer,
+                    explanation=explanation,
+                    category_id=category_id
+                )
+                if options:
+                    question.set_options(options)
+                
+                db.session.add(question)
+                db.session.commit()
+                flash('Question added successfully!')
+                return redirect(url_for('admin_dashboard'))
+            
+            categories = Category.query.all()
+            return render_template('admin/add_question.html', categories=categories)
+
+        @app.route('/profile')
+        def profile():
+            if 'user_id' not in session:
+                return redirect(url_for('login'))
+            
+            user = User.query.get(session['user_id'])
+            stats = user.get_stats()
+            
+            # Query for category-wise stats
+            category_stats = []
+            quizzes = Quiz.query.filter_by(user_id=user.id).all()
+            if quizzes:
+                category_counts = {}
+                for quiz in quizzes:
+                    cat_name = quiz.category.name
+                    category_counts[cat_name] = category_counts.get(cat_name, 0) + 1
+                    total_score = sum(q.score for q in quizzes if q.category.name == cat_name)
+                    total_questions = sum(q.total_questions for q in quizzes if q.category.name == cat_name)
+                    best_score = max((q.score for q in quizzes if q.category.name == cat_name), default=0)
+                    avg_score = (total_score / total_questions * 100) if total_questions > 0 else 0
+                
+                for cat_name, count in category_counts.items():
+                    category_stats.append({
+                        'name': cat_name,
+                        'quiz_count': count,
+                        'avg_score': avg_score,
+                        'best_score': best_score
+                    })
+            
+            # Paginate quiz history
+            page = request.args.get('page', 1, type=int)
+            quiz_history = Quiz.query.filter_by(user_id=user.id).order_by(Quiz.completed_at.desc()).paginate(page=page, per_page=5, error_out=False)
+            
+            return render_template('profile.html', user=user, stats=stats, category_stats=category_stats, quiz_history=quiz_history)
+    
+        @app.route('/start_quiz/<int:category_id>/<difficulty>')
+        def start_quiz(category_id, difficulty):
+            if 'user_id' not in session:
+                return redirect(url_for('login'))
+            
+            quiz_length_setting = Settings.query.filter_by(key='default_quiz_length').first()
+            quiz_length = int(quiz_length_setting.value) if quiz_length_setting else 10
+            
+            questions = Question.query.filter_by(category_id=category_id, difficulty=difficulty).all()
+            if len(questions) < quiz_length:
+                flash('Not enough questions available for this category and difficulty.')
+                return redirect(url_for('index'))
+            
+            questions = random.sample(questions, quiz_length)
+            quiz = Quiz(
+                user_id=session['user_id'],
+                category_id=category_id,
+                difficulty=difficulty,
+                total_questions=quiz_length
+            )
+            db.session.add(quiz)
+            db.session.commit()
+            
+            session['quiz_id'] = quiz.id
+            session['questions'] = [q.id for q in questions]
+            session['current_question'] = 0
+            session['score'] = 0
+            session['answers'] = []
+            session['start_time'] = datetime.utcnow().isoformat()
+            
+            return redirect(url_for('quiz_question', question_num=1))
+
+        @app.route('/quiz/<int:question_num>', methods=['GET', 'POST'])
+        def quiz_question(question_num):
+            if 'user_id' not in session or 'quiz_id' not in session:
+                return redirect(url_for('login'))
+            
+            if question_num < 1 or question_num > len(session['questions']):
+                return redirect(url_for('quiz_result'))
+            
+            question_id = session['questions'][question_num - 1]
+            question = Question.query.get(question_id)
+            
+            if not question:
+                flash('Question not found')
+                return redirect(url_for('quiz_result'))
+            
+            total_questions = len(session['questions'])
+            progress = (question_num / total_questions) * 100
+            
+            if request.method == 'POST':
+                user_answer = request.form.get('answer')
+                start_time = datetime.fromisoformat(session['start_time'])
+                time_taken = int((datetime.utcnow() - start_time).total_seconds())
+                
+                is_correct = user_answer == question.correct_answer
+                if is_correct:
+                    session['score'] += 1
+                
+                quiz_answer = QuizAnswer(
+                    quiz_id=session['quiz_id'],
+                    question_id=question.id,
+                    user_answer=user_answer,
+                    is_correct=is_correct,
+                    time_taken=time_taken
+                )
+                db.session.add(quiz_answer)
+                session['answers'].append({
+                    'question_id': question.id,
+                    'user_answer': user_answer,
+                    'is_correct': is_correct,
+                    'time_taken': time_taken
+                })
+                db.session.commit()
+                
+                session['start_time'] = datetime.utcnow().isoformat()
+                
+                return render_template('quiz_question.html',
+                                     question=question,
+                                     question_num=question_num,
+                                     total_questions=total_questions,
+                                     progress=progress)
+            
+            return render_template('quiz_question.html',
+                                 question=question,
+                                 question_num=question_num,
+                                 total_questions=total_questions,
+                                 progress=progress)
+
+        @app.route('/quiz/submit', methods=['POST'])
+        def quiz_submit():
+            if 'user_id' not in session or 'quiz_id' not in session:
+                return redirect(url_for('login'))
+            
+            quiz = Quiz.query.get(session['quiz_id'])
+            if not quiz:
+                flash('Quiz not found')
+                return redirect(url_for('index'))
+            
+            quiz.score = session['score']
+            quiz.time_taken = sum(answer['time_taken'] for answer in session['answers'])
+            quiz.completed_at = datetime.utcnow()
+            db.session.commit()
+            
+            return redirect(url_for('quiz_result'))
+
+        @app.route('/results/<int:quiz_id>')
+        def results(quiz_id):
+            quiz = Quiz.query.get_or_404(quiz_id)
+            if quiz.user_id != session.get('user_id'):
+                return redirect(url_for('login'))
+            
+            answers = QuizAnswer.query.filter_by(quiz_id=quiz_id).all()
+            detailed_results = []
+            for answer in answers:
+                question = Question.query.get(answer.question_id)
+                detailed_results.append({
+                    'question_text': question.text,
+                    'user_answer': answer.user_answer,
+                    'correct_answer': question.correct_answer,
+                    'is_correct': answer.is_correct,
+                    'time_taken': answer.time_taken,
+                    'explanation': question.explanation
+                })
+            
+            return render_template('results.html', quiz=quiz, detailed_results=detailed_results)
+
+        @app.route('/quiz/result')
+        def quiz_result():
+            if 'user_id' not in session or 'quiz_id' not in session:
+                return redirect(url_for('login'))
+            
+            quiz = Quiz.query.get(session['quiz_id'])
+            if not quiz:
+                flash('Quiz not found')
+                return redirect(url_for('index'))
+            
+            answers = session.get('answers', [])
+            detailed_results = []
+            for answer in answers:
+                question = Question.query.get(answer['question_id'])
+                detailed_results.append({
+                    'question_text': question.text,
+                    'user_answer': answer['user_answer'],
+                    'correct_answer': question.correct_answer,
+                    'is_correct': answer['is_correct'],
+                    'time_taken': answer['time_taken'],
+                    'explanation': question.explanation
+                })
+            
+            score_percentage = (quiz.score / quiz.total_questions) * 100 if quiz.total_questions > 0 else 0
+            
+            session.pop('quiz_id', None)
+            session.pop('questions', None)
+            session.pop('current_question', None)
+            session.pop('score', None)
+            session.pop('answers', None)
+            session.pop('start_time', None)
+            
+            return render_template('quiz_result.html',
+                                 score=quiz.score,
+                                 total_questions=quiz.total_questions,
+                                 score_percentage=score_percentage,
+                                 detailed_results=detailed_results,
+                                 category=quiz.category.name)
+
+    return app
+
+if __name__ == '__main__':
+    app = create_app()
+    app.run(debug=True)

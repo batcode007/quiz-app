@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Quiz in Progress - Cricket Quiz App{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto">
+    <div class="bg-white rounded-lg shadow-xl p-6 mb-8">
+        <div class="text-center mb-6">
+            <h2 class="text-3xl font-bold text-gray-800">{{ quiz.category.name }} Quiz</h2>
+            <p class="text-lg text-gray-600">Difficulty: <span class="capitalize font-semibold">{{ quiz.difficulty }}</span></p>
+            <p class="text-gray-500">Player: {{ quiz.user.full_name }}</p>
+        </div>
+        
+        <div class="mb-6">
+            <div class="flex justify-between text-sm text-gray-500 mb-2">
+                <span>Progress</span>
+                <span id="progress-text">0 / 10</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-3">
+                <div id="quiz-progress" class="bg-blue-500 h-3 rounded-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="question-container">
+        <div class="flex justify-center items-center py-12">
+            <div class="spinner"></div>
+            <span class="ml-4 text-lg text-gray-600">Loading question...</span>
+        </div>
+    </div>
+</div>
+
+<script>
+// Update progress bar
+function updateProgress(current, total) {
+    const progressBar = document.getElementById('quiz-progress');
+    const progressText = document.getElementById('progress-text');
+    
+    const percentage = (current / total) * 100;
+    progressBar.style.width = `${percentage}%`;
+    progressText.textContent = `${current} / ${total}`;
+}
+
+// Override nextQuestion to update progress
+const originalNextQuestion = QuizApp.prototype.nextQuestion;
+QuizApp.prototype.nextQuestion = async function() {
+    updateProgress(this.currentQuestion + 1, 10);
+    await originalNextQuestion.call(this);
+};
+</script>
+{% endblock %}
