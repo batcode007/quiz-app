@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session, jsonify
 from flask_migrate import Migrate
 from werkzeug.security import check_password_hash
+from functools import wraps
 from datetime import datetime
 import os
 import json
@@ -34,6 +35,18 @@ def create_app():
         # Logging configuration
         logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
         
+
+        # Authentication decorator
+        def login_required(f):
+            @wraps(f)
+            def decorated_function(*args, **kwargs):
+                if 'user_id' not in session:
+                    return redirect(url_for('login'))
+                return f(*args, **kwargs)
+            return decorated_function
+
+
+
         # Register routes
         @app.route('/')
         def index():
@@ -66,25 +79,34 @@ def create_app():
 
         @app.route('/login', methods=['GET', 'POST'])
         def login():
-            print('check1')
             if request.method == 'POST':
-                username = request.form['username']
-                password = request.form['password']
+                data = request.get_json()
+                if not data:
+                    return jsonify({'error': 'No data provided'}), 400
+                
+                username = data.get('username')
+                password = data.get('password')
+                
+                if not username or not password:
+                    return jsonify({'error': 'Username and password are required'}), 400
+                
                 user = User.query.filter_by(username=username).first()
-                print(f'user {user}')
-                print(f'password {password}')
                 if user and user.check_password(password):
                     session['user_id'] = user.id
+                    session['username'] = user.username
+                    session['full_name'] = user.full_name
                     user.last_login = datetime.utcnow()
                     db.session.commit()
-                    return redirect(url_for('index'))
-                flash('Invalid username or password')
+                    return jsonify({'redirect': url_for('index')}), 200
+                return jsonify({'error': 'Invalid username or password'}), 401
             
             return render_template('auth/login.html')
 
         @app.route('/logout')
         def logout():
             session.pop('user_id', None)
+            session.pop('username', None)
+            session.pop('full_name', None)
             return redirect(url_for('login'))
 
         @app.route('/admin', methods=['GET', 'POST'])
@@ -187,6 +209,32 @@ def create_app():
             categories = Category.query.all()
             return render_template('admin/add_question.html', categories=categories)
 
+        @app.route('/admin/save_question', methods=['POST'])
+        def admin_save_question():
+            if not session.get('admin'):
+                return redirect(url_for('admin_login'))
+            
+            data = request.get_json()
+            
+            question = Question(
+                text=data['text'],
+                question_type=data['type'],
+                difficulty=data['difficulty'],
+                correct_answer=data['correct_answer'],
+                explanation=data.get('explanation', ''),
+                category_id=data['category_id']
+            )
+            
+            if data['type'] == 'mcq':
+                question.set_options(data['options'])
+            
+            db.session.add(question)
+            db.session.commit()
+            
+            return jsonify({'success': True})
+
+
+
         @app.route('/profile')
         def profile():
             if 'user_id' not in session:
@@ -219,14 +267,13 @@ def create_app():
             # Paginate quiz history
             page = request.args.get('page', 1, type=int)
             quiz_history = Quiz.query.filter_by(user_id=user.id).order_by(Quiz.completed_at.desc()).paginate(page=page, per_page=5, error_out=False)
-            
             return render_template('profile.html', user=user, stats=stats, category_stats=category_stats, quiz_history=quiz_history)
     
-        @app.route('/start_quiz/<int:category_id>/<difficulty>')
-        def start_quiz(category_id, difficulty):
+        @app.route('/start_quiz', methods=['GET', 'POST'])
+        def start_quiz():
             if 'user_id' not in session:
                 return redirect(url_for('login'))
-            
+            print('request', request)
             quiz_length_setting = Settings.query.filter_by(key='default_quiz_length').first()
             quiz_length = int(quiz_length_setting.value) if quiz_length_setting else 10
             
@@ -320,7 +367,7 @@ def create_app():
             if not quiz:
                 flash('Quiz not found')
                 return redirect(url_for('index'))
-            
+            print('sesion', session)
             quiz.score = session['score']
             quiz.time_taken = sum(answer['time_taken'] for answer in session['answers'])
             quiz.completed_at = datetime.utcnow()
@@ -349,6 +396,18 @@ def create_app():
             
             return render_template('results.html', quiz=quiz, detailed_results=detailed_results)
 
+        @app.route('/categories')
+        @login_required
+        def get_categories():
+            sport_id = request.args.get('sport_id')
+            if not sport_id:
+                return jsonify([]), 400
+            
+            categories = Category.query.filter_by(sport_id=sport_id).all()
+            return jsonify([{'id': c.id, 'name': c.name} for c in categories])
+
+
+        
         @app.route('/quiz/result')
         def quiz_result():
             if 'user_id' not in session or 'quiz_id' not in session:
