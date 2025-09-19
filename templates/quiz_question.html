@@ -1,37 +1,46 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Quiz Question</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
-    <h1>Question {{ question_num }} of {{ total_questions }}</h1>
-    <div class="progress-bar">
-        <!-- <div class="progress" style="width: {{ progress }}%;"></div> -->
+{% extends "base.html" %}
+
+{% block title %}Quiz Question - Cricket Quiz App{% endblock %}
+
+{% block content %}
+<div class="container mx-auto p-6">
+    <div class="bg-white rounded-lg shadow-lg p-6 border border-gray-200">
+        <h1 class="text-3xl font-bold text-green-700 mb-4 flex items-center">
+            <span class="mr-2">🏏</span> Question {{ question_num }} of {{ total_questions }}
+        </h1>
+        <div class="progress-bar mb-6">
+            <div class="progress" style="width: {{ progress|default(0)|round(1) }}%;"></div>
+        </div>
+        <div class="question-card p-6 bg-gray-50 rounded-lg shadow-inner">
+            <h2 class="text-xl mb-6 text-gray-800">{{ question.text }}</h2>
+            <form id="quizForm" method="POST" class="space-y-4">
+                {% if question.question_type == 'mcq' %}
+                    {% for option in question.get_options() %}
+                        <label class="block">
+                            <button type="button" class="option-button w-full text-left p-3 rounded-md text-gray-700 hover:bg-green-50" data-value="{{ option }}">
+                                <input type="radio" name="answer" value="{{ option }}" required class="hidden"> {{ option }}
+                            </button>
+                        </label>
+                    {% endfor %}
+                {% elif question.question_type == 'true_false' %}
+                    <label class="block"><button type="button" class="option-button w-full text-left p-3 rounded-md text-gray-700 hover:bg-green-50" data-value="True"><input type="radio" name="answer" value="True" required class="hidden"> True</button></label>
+                    <label class="block"><button type="button" class="option-button w-full text-left p-3 rounded-md text-gray-700 hover:bg-green-50" data-value="False"><input type="radio" name="answer" value="False" required class="hidden"> False</button></label>
+                {% else %}
+                    <input type="text" name="answer" required class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500">
+                {% endif %}
+                <div class="mt-6">
+                    {% if question_num < total_questions %}
+                        <button type="submit" name="action" value="next" class="w-full bg-green-600 text-white p-3 rounded-md hover:bg-green-700 transition duration-300">Next</button>
+                    {% else %}
+                        <button type="submit" name="action" value="submit" class="w-full bg-blue-600 text-white p-3 rounded-md hover:bg-blue-700 transition duration-300">Submit Quiz</button>
+                    {% endif %}
+                </div>
+            </form>
+        </div>
     </div>
-    <h2>{{ question.text }}</h2>
-    
-    <form id="quizForm" method="POST">
-        {% if question.question_type == 'mcq' %}
-            {% for option in question.get_options() %}
-                <label>
-                    <input type="radio" name="answer" value="{{ option }}" required> {{ option }}
-                </label><br>
-            {% endfor %}
-        {% elif question.question_type == 'true_false' %}
-            <label><input type="radio" name="answer" value="True" required> True</label><br>
-            <label><input type="radio" name="answer" value="False" required> False</label><br>
-        {% else %}
-            <input type="text" name="answer" required>
-        {% endif %}
-        
-        {% if question_num < total_questions %}
-            <button type="submit" name="action" value="next">Next</button>
-        {% else %}
-            <button type="submit" name="action" value="submit">Submit Quiz</button>
-        {% endif %}
-    </form>
-    
-    <script src="{{ url_for('static', filename='js/quiz.js') }}"></script>
-</body>
-</html>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/quiz.js') }}"></script>
+{% endblock %}

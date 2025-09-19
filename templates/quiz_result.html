@@ -1,35 +1,53 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Quiz Result</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
-    <h1>Quiz Result - {{ category }}</h1>
-    <p>Your Score: {{ score }} / {{ total_questions }} ({{ score_percentage }}%)</p>
-    
-    <h2>Detailed Results</h2>
-    <table>
-        <tr>
-            <th>Question</th>
-            <th>Your Answer</th>
-            <th>Correct Answer</th>
-            <th>Result</th>
-            <th>Time Taken (s)</th>
-            <th>Explanation</th>
-        </tr>
-        {% for result in detailed_results %}
-        <tr>
-            <td>{{ result.question_text }}</td>
-            <td>{{ result.user_answer }}</td>
-            <td>{{ result.correct_answer }}</td>
-            <td>{{ 'Correct' if result.is_correct else 'Incorrect' }}</td>
-            <td>{{ result.time_taken }}</td>
-            <td>{{ result.explanation }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-    
-    <p><a href="{{ url_for('index') }}">Back to Home</a></p>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Quiz Result - Cricket Quiz App{% endblock %}
+
+{% block content %}
+<div class="container mx-auto p-6">
+    <div class="bg-white rounded-lg shadow-lg p-6 border border-gray-200">
+        <h1 class="text-3xl font-bold text-green-700 mb-4 flex items-center">
+            <span class="mr-2">🏏</span> Quiz Result - {{ category }}
+        </h1>
+        <div class="bg-green-100 p-4 rounded-md mb-6">
+            <p class="text-2xl font-semibold text-green-800">Your Score: {{ score }} / {{ total_questions }} ({{ score_percentage }}%)</p>
+        </div>
+        <div class="question-card p-6 bg-gray-50 rounded-lg shadow-inner">
+            <h2 class="text-xl mb-6 text-gray-800">Detailed Results</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-green-600 text-white">
+                            <th class="p-3">Question</th>
+                            <th class="p-3">Your Answer</th>
+                            <th class="p-3">Correct Answer</th>
+                            <th class="p-3">Result</th>
+                            <th class="p-3">Time Taken (s)</th>
+                            <th class="p-3">Explanation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for result in detailed_results %}
+                        <tr class="border-b border-gray-200 hover:bg-gray-100">
+                            <td class="p-3">{{ result.question_text }}</td>
+                            <td class="p-3">{{ result.user_answer }}</td>
+                            <td class="p-3">{{ result.correct_answer }}</td>
+                            <td class="p-3 {% if result.is_correct %}text-green-600{% else %}text-red-600{% endif %}">
+                                {{ 'Correct' if result.is_correct else 'Incorrect' }}
+                            </td>
+                            <td class="p-3">{{ result.time_taken }}</td>
+                            <td class="p-3">{{ result.explanation }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="mt-6">
+                <a href="{{ url_for('index') }}" class="inline-block bg-blue-600 text-white p-3 rounded-md hover:bg-blue-700 transition duration-300">Back to Home</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

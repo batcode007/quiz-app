@@ -6,6 +6,7 @@
 
 .question-card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 1rem;
 }
 
 .question-card:hover {
@@ -16,6 +17,7 @@
 .option-button {
     transition: all 0.2s ease;
     border: 2px solid transparent;
+    cursor: pointer;
 }
 
 .option-button:hover {
@@ -48,6 +50,7 @@
     width: 40px;
     height: 40px;
     animation: spin 1s linear infinite;
+    margin: 0 auto;
 }
 
 @keyframes spin {
@@ -82,24 +85,19 @@
     animation: timer-warning 0.5s infinite;
 }
 
-
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-}
-
+/* Progress Bar */
 .progress-bar {
     width: 100%;
-    background-color: #f0f0f0;
+    background-color: #e0e0e0;
     height: 20px;
     border-radius: 10px;
     overflow: hidden;
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
 }
 
 .progress {
     height: 100%;
     background-color: #4CAF50;
     transition: width 0.3s ease-in-out;
+    border-radius: 10px;
 }

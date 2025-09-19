@@ -360,12 +360,17 @@ def create_app():
                 db.session.commit()
             
                 session['start_time'] = datetime.utcnow().isoformat()
+
+                if request.form.get('action') == 'next' and question_num < total_questions:
+                    return redirect(url_for('quiz_question', question_num=question_num + 1))
+                elif request.form.get('action') == 'submit' or question_num == total_questions:
+                    return redirect(url_for('quiz_result'))
             
-                return render_template('quiz_question.html',
-                                     question=question,
-                                     question_num=question_num,
-                                     total_questions=total_questions,
-                                     progress=progress)
+                # return render_template('quiz_question.html',
+                #                      question=question,
+                #                      question_num=question_num,
+                #                      total_questions=total_questions,
+                #                      progress=progress)
             return render_template('quiz_question.html',
                                  question=question,
                                  question_num=question_num,

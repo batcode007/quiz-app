@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded', function() {
             radioButtons.forEach(radio => {
                 if (radio.checked) {
                     answerSelected = true;
+                    // Mark the selected button
+                    const button = radio.parentElement;
+                    button.classList.add('selected');
                 }
             });
             
@@ -19,7 +22,24 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!answerSelected) {
                 event.preventDefault();
                 alert('Please select or enter an answer before proceeding.');
+                return;
             }
+
+            // Allow form submission to proceed to server
+            // The server will handle the next/submit action
+        });
+
+        // Enhance option buttons for better UX
+        const optionButtons = document.querySelectorAll('.option-button');
+        optionButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const radio = this.querySelector('input[type="radio"]');
+                if (radio) {
+                    radio.checked = true;
+                    optionButtons.forEach(btn => btn.classList.remove('selected'));
+                    this.classList.add('selected');
+                }
+            });
         });
     }
 });
