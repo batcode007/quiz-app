@@ -53,7 +53,8 @@ def create_app():
             if 'user_id' in session:
                 user = User.query.get(session['user_id'])
                 sports = Sport.query.all()
-                return render_template('index.html', user=user, sports=sports)
+                categories = Category.query.all()
+                return render_template('index.html', user=user, sports=sports, categories=categories)
             return redirect(url_for('login'))
 
         @app.route('/register', methods=['GET', 'POST'])
@@ -273,16 +274,31 @@ def create_app():
         def start_quiz():
             if 'user_id' not in session:
                 return redirect(url_for('login'))
-            print('request', request)
+            # data = request.get_json()
+            print("Form data:", request.form)
+            print("Raw data:", request.get_data())
+
+            category_id = request.form.get('category_id')
+            difficulty = request.form.get('difficulty')
+
+            # difficulty = data.get('difficulty')
+            
+            if not all([category_id, difficulty]):
+                flash('Missing required fields')
+                return redirect(url_for('index'))
+                return jsonify({'error': 'Missing required fields'}), 400
+            
             quiz_length_setting = Settings.query.filter_by(key='default_quiz_length').first()
             quiz_length = int(quiz_length_setting.value) if quiz_length_setting else 10
-            
             questions = Question.query.filter_by(category_id=category_id, difficulty=difficulty).all()
             if len(questions) < quiz_length:
                 flash('Not enough questions available for this category and difficulty.')
                 return redirect(url_for('index'))
             
             questions = random.sample(questions, quiz_length)
+            if len(questions) != quiz_length:
+                print(f"Warning: Only {len(questions)} questions sampled, expected {quiz_length}")
+    
             quiz = Quiz(
                 user_id=session['user_id'],
                 category_id=category_id,
@@ -315,7 +331,6 @@ def create_app():
             if not question:
                 flash('Question not found')
                 return redirect(url_for('quiz_result'))
-            
             total_questions = len(session['questions'])
             progress = (question_num / total_questions) * 100
             
@@ -343,20 +358,106 @@ def create_app():
                     'time_taken': time_taken
                 })
                 db.session.commit()
-                
+            
                 session['start_time'] = datetime.utcnow().isoformat()
-                
+            
                 return render_template('quiz_question.html',
                                      question=question,
                                      question_num=question_num,
                                      total_questions=total_questions,
                                      progress=progress)
-            
             return render_template('quiz_question.html',
                                  question=question,
                                  question_num=question_num,
                                  total_questions=total_questions,
                                  progress=progress)
+
+        @app.route('/submit_answer', methods=['POST'])
+        @login_required
+        def submit_answer():
+            if 'quiz_id' not in session:
+                return jsonify({'error': 'No active quiz'}), 400
+            
+            # Verify quiz belongs to current user
+            quiz = Quiz.query.get(session['quiz_id'])
+            if not quiz or quiz.user_id != session['user_id']:
+                return jsonify({'error': 'Unauthorized'}), 403
+            
+            data = request.get_json()
+            question_id = data.get('question_id')
+            user_answer = data.get('answer', '').strip()
+            time_taken = data.get('time_taken', 60)
+            
+            question = Question.query.get(question_id)
+            if not question:
+                return jsonify({'error': 'Question not found'}), 404
+            
+            # Check if answer is correct
+            is_correct = False
+            correct_answer = question.correct_answer.strip()
+            
+            if question.question_type == 'true_false':
+                is_correct = user_answer.lower() == correct_answer.lower()
+            elif question.question_type == 'fill_blank':
+                is_correct = user_answer.lower() == correct_answer.lower()
+            elif question.question_type == 'mcq':
+                is_correct = user_answer == correct_answer
+            
+            # Save answer
+            quiz_answer = QuizAnswer(
+                quiz_id=session['quiz_id'],
+                question_id=question_id,
+                user_answer=user_answer,
+                is_correct=is_correct,
+                time_taken=time_taken
+            )
+            db.session.add(quiz_answer)
+            
+            # Update quiz score
+            if is_correct:
+                quiz.score += 1
+                db.session.commit()
+            
+            db.session.commit()
+            
+            return jsonify({
+                'correct': is_correct,
+                'correct_answer': correct_answer,
+                'explanation': question.explanation
+            })
+
+
+        @app.route('/get_question/<int:question_num>')
+        @login_required
+        def get_question(question_num):
+            if 'quiz_id' not in session or question_num >= len(session['question_ids']):
+                return jsonify({'error': 'Invalid question'}), 400
+            
+            # Verify quiz belongs to current user
+            quiz = Quiz.query.get(session['quiz_id'])
+            if not quiz or quiz.user_id != session['user_id']:
+                return jsonify({'error': 'Unauthorized'}), 403
+            
+            question_id = session['question_ids'][question_num]
+            question = Question.query.get(question_id)
+            
+            if not question:
+                return jsonify({'error': 'Question not found'}), 404
+            
+            question_data = {
+                'id': question.id,
+                'text': question.text,
+                'type': question.question_type,
+                'number': question_num + 1,
+                'total': len(session['question_ids'])
+            }
+            
+            if question.question_type == 'mcq':
+                question_data['options'] = question.get_options()
+            
+            return jsonify(question_data)
+
+
 
         @app.route('/quiz/submit', methods=['POST'])
         def quiz_submit():

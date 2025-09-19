@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz Question</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Question {{ question_num }} of {{ total_questions }}</h1>
+    <div class="progress-bar">
+        <!-- <div class="progress" style="width: {{ progress }}%;"></div> -->
+    </div>
+    <h2>{{ question.text }}</h2>
+    
+    <form id="quizForm" method="POST">
+        {% if question.question_type == 'mcq' %}
+            {% for option in question.get_options() %}
+                <label>
+                    <input type="radio" name="answer" value="{{ option }}" required> {{ option }}
+                </label><br>
+            {% endfor %}
+        {% elif question.question_type == 'true_false' %}
+            <label><input type="radio" name="answer" value="True" required> True</label><br>
+            <label><input type="radio" name="answer" value="False" required> False</label><br>
+        {% else %}
+            <input type="text" name="answer" required>
+        {% endif %}
+        
+        {% if question_num < total_questions %}
+            <button type="submit" name="action" value="next">Next</button>
+        {% else %}
+            <button type="submit" name="action" value="submit">Submit Quiz</button>
+        {% endif %}
+    </form>
+    
+    <script src="{{ url_for('static', filename='js/quiz.js') }}"></script>
+</body>
+</html>

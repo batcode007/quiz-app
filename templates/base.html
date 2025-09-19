@@ -14,7 +14,7 @@
                 <h1 class="text-2xl font-bold text-green-600">🏏 Cricket Quiz</h1>
                 <div class="flex items-center space-x-4">
                     {% if session.user_id %}
-                        <span class="text-gray-600">Welcome, {{ session }}!</span>
+                        <span class="text-gray-600">Welcome, {{ session.username }}!</span>
                         <a href="{{ url_for('index') }}" class="text-gray-600 hover:text-green-600">Home</a>
                         <a href="{{ url_for('profile') }}" class="text-gray-600 hover:text-green-600">Profile</a>
                         <a href="{{ url_for('admin_login') }}" class="text-gray-600 hover:text-green-600">Admin</a>
