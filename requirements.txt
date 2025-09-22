@@ -6,3 +6,4 @@ Flask-WTF==1.2.1
 pyarrow
 boto3
 flask_migrate
+gunicorn
