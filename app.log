@@ -178,3 +178,365 @@
 2025-09-19 16:21:41,474 - INFO - 127.0.0.1 - - [19/Sep/2025 16:21:41] "GET /quiz/result HTTP/1.1" 200 -
 2025-09-19 16:21:41,482 - INFO - 127.0.0.1 - - [19/Sep/2025 16:21:41] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
 2025-09-19 16:21:41,483 - INFO - 127.0.0.1 - - [19/Sep/2025 16:21:41] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:18:37,131 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-19 18:18:37,131 - INFO - [33mPress CTRL+C to quit[0m
+2025-09-19 18:18:37,132 - INFO -  * Restarting with stat
+2025-09-19 18:18:37,335 - WARNING -  * Debugger is active!
+2025-09-19 18:18:37,340 - INFO -  * Debugger PIN: 436-508-465
+2025-09-19 18:18:41,542 - INFO - 127.0.0.1 - - [19/Sep/2025 18:18:41] "GET / HTTP/1.1" 200 -
+2025-09-19 18:18:41,553 - INFO - 127.0.0.1 - - [19/Sep/2025 18:18:41] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:18:41,554 - INFO - 127.0.0.1 - - [19/Sep/2025 18:18:41] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:20:15,645 - INFO - 127.0.0.1 - - [19/Sep/2025 18:20:15] "GET / HTTP/1.1" 200 -
+2025-09-19 18:20:15,656 - INFO - 127.0.0.1 - - [19/Sep/2025 18:20:15] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:20:15,657 - INFO - 127.0.0.1 - - [19/Sep/2025 18:20:15] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:20:23,458 - INFO - 127.0.0.1 - - [19/Sep/2025 18:20:23] "GET /categories?sport_id=2 HTTP/1.1" 200 -
+2025-09-19 18:20:29,663 - INFO - 127.0.0.1 - - [19/Sep/2025 18:20:29] "GET / HTTP/1.1" 200 -
+2025-09-19 18:20:29,678 - INFO - 127.0.0.1 - - [19/Sep/2025 18:20:29] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:20:29,678 - INFO - 127.0.0.1 - - [19/Sep/2025 18:20:29] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:20:30,474 - INFO - 127.0.0.1 - - [19/Sep/2025 18:20:30] "GET /profile HTTP/1.1" 200 -
+2025-09-19 18:20:30,486 - INFO - 127.0.0.1 - - [19/Sep/2025 18:20:30] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:20:30,486 - INFO - 127.0.0.1 - - [19/Sep/2025 18:20:30] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:20:31,975 - INFO - 127.0.0.1 - - [19/Sep/2025 18:20:31] "GET /admin HTTP/1.1" 200 -
+2025-09-19 18:20:31,988 - INFO - 127.0.0.1 - - [19/Sep/2025 18:20:31] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:20:31,988 - INFO - 127.0.0.1 - - [19/Sep/2025 18:20:31] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:20:33,359 - INFO - 127.0.0.1 - - [19/Sep/2025 18:20:33] "GET / HTTP/1.1" 200 -
+2025-09-19 18:20:33,370 - INFO - 127.0.0.1 - - [19/Sep/2025 18:20:33] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:20:33,371 - INFO - 127.0.0.1 - - [19/Sep/2025 18:20:33] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:20:36,029 - INFO - 127.0.0.1 - - [19/Sep/2025 18:20:36] "GET /categories?sport_id=1 HTTP/1.1" 200 -
+2025-09-19 18:22:26,921 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/models.py', reloading
+2025-09-19 18:22:27,014 - INFO -  * Restarting with stat
+2025-09-19 18:22:27,236 - WARNING -  * Debugger is active!
+2025-09-19 18:22:27,240 - INFO -  * Debugger PIN: 436-508-465
+2025-09-19 18:22:54,655 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/models.py', reloading
+2025-09-19 18:22:54,734 - INFO -  * Restarting with stat
+2025-09-19 18:22:55,028 - WARNING -  * Debugger is active!
+2025-09-19 18:22:55,033 - INFO -  * Debugger PIN: 436-508-465
+2025-09-19 18:26:46,503 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/app.py', reloading
+2025-09-19 18:26:46,576 - INFO -  * Restarting with stat
+2025-09-19 18:26:46,871 - WARNING -  * Debugger is active!
+2025-09-19 18:26:46,876 - INFO -  * Debugger PIN: 436-508-465
+2025-09-19 18:29:26,212 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/app.py', reloading
+2025-09-19 18:29:26,289 - INFO -  * Restarting with stat
+2025-09-19 18:29:40,760 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-19 18:29:40,760 - INFO - [33mPress CTRL+C to quit[0m
+2025-09-19 18:29:40,761 - INFO -  * Restarting with stat
+2025-09-19 18:29:40,966 - WARNING -  * Debugger is active!
+2025-09-19 18:29:40,970 - INFO -  * Debugger PIN: 436-508-465
+2025-09-19 18:31:08,028 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-19 18:31:08,028 - INFO - [33mPress CTRL+C to quit[0m
+2025-09-19 18:31:08,029 - INFO -  * Restarting with stat
+2025-09-19 18:31:08,236 - WARNING -  * Debugger is active!
+2025-09-19 18:31:08,241 - INFO -  * Debugger PIN: 436-508-465
+2025-09-19 18:31:09,370 - INFO - 127.0.0.1 - - [19/Sep/2025 18:31:09] "GET /admin HTTP/1.1" 200 -
+2025-09-19 18:31:09,383 - INFO - 127.0.0.1 - - [19/Sep/2025 18:31:09] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:31:09,384 - INFO - 127.0.0.1 - - [19/Sep/2025 18:31:09] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:31:12,911 - INFO - 127.0.0.1 - - [19/Sep/2025 18:31:12] "[32mPOST /admin HTTP/1.1[0m" 302 -
+2025-09-19 18:31:12,995 - INFO - 127.0.0.1 - - [19/Sep/2025 18:31:12] "GET /admin/dashboard HTTP/1.1" 200 -
+2025-09-19 18:31:13,015 - INFO - 127.0.0.1 - - [19/Sep/2025 18:31:13] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:31:13,015 - INFO - 127.0.0.1 - - [19/Sep/2025 18:31:13] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:31:15,383 - INFO - 127.0.0.1 - - [19/Sep/2025 18:31:15] "GET /admin/add_question HTTP/1.1" 200 -
+2025-09-19 18:31:15,402 - INFO - 127.0.0.1 - - [19/Sep/2025 18:31:15] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:31:15,405 - INFO - 127.0.0.1 - - [19/Sep/2025 18:31:15] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:32:04,073 - INFO - 127.0.0.1 - - [19/Sep/2025 18:32:04] "[35m[1mPOST /admin/save_question HTTP/1.1[0m" 500 -
+2025-09-19 18:32:27,414 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/models.py', reloading
+2025-09-19 18:32:27,496 - INFO -  * Restarting with stat
+2025-09-19 18:32:27,792 - WARNING -  * Debugger is active!
+2025-09-19 18:32:27,796 - INFO -  * Debugger PIN: 436-508-465
+2025-09-19 18:32:32,911 - INFO - 127.0.0.1 - - [19/Sep/2025 18:32:32] "POST /admin/save_question HTTP/1.1" 200 -
+2025-09-19 18:33:52,078 - INFO - 127.0.0.1 - - [19/Sep/2025 18:33:52] "GET / HTTP/1.1" 200 -
+2025-09-19 18:33:52,096 - INFO - 127.0.0.1 - - [19/Sep/2025 18:33:52] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:33:52,096 - INFO - 127.0.0.1 - - [19/Sep/2025 18:33:52] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:33:54,881 - INFO - 127.0.0.1 - - [19/Sep/2025 18:33:54] "GET /categories?sport_id=1 HTTP/1.1" 200 -
+2025-09-19 18:34:17,521 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/app.py', reloading
+2025-09-19 18:34:17,597 - INFO -  * Restarting with stat
+2025-09-19 18:34:17,808 - WARNING -  * Debugger is active!
+2025-09-19 18:34:17,812 - INFO -  * Debugger PIN: 436-508-465
+2025-09-19 18:35:16,688 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/app.py', reloading
+2025-09-19 18:35:16,778 - INFO -  * Restarting with stat
+2025-09-19 18:35:16,990 - WARNING -  * Debugger is active!
+2025-09-19 18:35:16,994 - INFO -  * Debugger PIN: 436-508-465
+2025-09-19 18:35:18,205 - INFO - 127.0.0.1 - - [19/Sep/2025 18:35:18] "GET / HTTP/1.1" 200 -
+2025-09-19 18:35:18,222 - INFO - 127.0.0.1 - - [19/Sep/2025 18:35:18] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:35:18,222 - INFO - 127.0.0.1 - - [19/Sep/2025 18:35:18] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:35:20,173 - INFO - 127.0.0.1 - - [19/Sep/2025 18:35:20] "GET /categories?sport_id=1 HTTP/1.1" 200 -
+2025-09-19 18:35:26,854 - INFO - 127.0.0.1 - - [19/Sep/2025 18:35:26] "[32mPOST /start_quiz HTTP/1.1[0m" 302 -
+2025-09-19 18:35:26,868 - INFO - 127.0.0.1 - - [19/Sep/2025 18:35:26] "GET /quiz/1 HTTP/1.1" 200 -
+2025-09-19 18:35:26,877 - INFO - 127.0.0.1 - - [19/Sep/2025 18:35:26] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:35:26,877 - INFO - 127.0.0.1 - - [19/Sep/2025 18:35:26] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:35:26,878 - INFO - 127.0.0.1 - - [19/Sep/2025 18:35:26] "[36mGET /static/js/quiz.js HTTP/1.1[0m" 304 -
+2025-09-19 18:35:35,579 - INFO - 127.0.0.1 - - [19/Sep/2025 18:35:35] "[32mPOST /quiz/1 HTTP/1.1[0m" 302 -
+2025-09-19 18:35:35,586 - INFO - 127.0.0.1 - - [19/Sep/2025 18:35:35] "GET /quiz/2 HTTP/1.1" 200 -
+2025-09-19 18:35:35,602 - INFO - 127.0.0.1 - - [19/Sep/2025 18:35:35] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:35:35,604 - INFO - 127.0.0.1 - - [19/Sep/2025 18:35:35] "[36mGET /static/js/quiz.js HTTP/1.1[0m" 304 -
+2025-09-19 18:35:35,604 - INFO - 127.0.0.1 - - [19/Sep/2025 18:35:35] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:35:43,790 - INFO - 127.0.0.1 - - [19/Sep/2025 18:35:43] "[32mPOST /quiz/2 HTTP/1.1[0m" 302 -
+2025-09-19 18:35:43,809 - INFO - 127.0.0.1 - - [19/Sep/2025 18:35:43] "GET /quiz/result HTTP/1.1" 200 -
+2025-09-19 18:35:43,822 - INFO - 127.0.0.1 - - [19/Sep/2025 18:35:43] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:35:43,823 - INFO - 127.0.0.1 - - [19/Sep/2025 18:35:43] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:35:47,582 - INFO - 127.0.0.1 - - [19/Sep/2025 18:35:47] "GET / HTTP/1.1" 200 -
+2025-09-19 18:35:47,592 - INFO - 127.0.0.1 - - [19/Sep/2025 18:35:47] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:35:47,592 - INFO - 127.0.0.1 - - [19/Sep/2025 18:35:47] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:37:40,638 - INFO - 127.0.0.1 - - [19/Sep/2025 18:37:40] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:37:40,650 - INFO - 127.0.0.1 - - [19/Sep/2025 18:37:40] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-19 18:37:43,837 - INFO - 127.0.0.1 - - [19/Sep/2025 18:37:43] "GET /categories?sport_id=1 HTTP/1.1" 200 -
+2025-09-19 18:37:47,136 - INFO - 127.0.0.1 - - [19/Sep/2025 18:37:47] "[32mPOST /start_quiz HTTP/1.1[0m" 302 -
+2025-09-19 18:37:47,142 - INFO - 127.0.0.1 - - [19/Sep/2025 18:37:47] "GET / HTTP/1.1" 200 -
+2025-09-19 18:37:47,154 - INFO - 127.0.0.1 - - [19/Sep/2025 18:37:47] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:37:47,155 - INFO - 127.0.0.1 - - [19/Sep/2025 18:37:47] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-19 18:37:47,155 - INFO - 127.0.0.1 - - [19/Sep/2025 18:37:47] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:37:57,145 - INFO - 127.0.0.1 - - [19/Sep/2025 18:37:57] "GET /categories?sport_id=1 HTTP/1.1" 200 -
+2025-09-19 18:38:02,256 - INFO - 127.0.0.1 - - [19/Sep/2025 18:38:02] "[32mPOST /start_quiz HTTP/1.1[0m" 302 -
+2025-09-19 18:38:02,262 - INFO - 127.0.0.1 - - [19/Sep/2025 18:38:02] "GET /quiz/1 HTTP/1.1" 200 -
+2025-09-19 18:38:02,277 - INFO - 127.0.0.1 - - [19/Sep/2025 18:38:02] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:38:02,279 - INFO - 127.0.0.1 - - [19/Sep/2025 18:38:02] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-19 18:38:02,279 - INFO - 127.0.0.1 - - [19/Sep/2025 18:38:02] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:38:02,280 - INFO - 127.0.0.1 - - [19/Sep/2025 18:38:02] "[36mGET /static/js/quiz.js HTTP/1.1[0m" 304 -
+2025-09-19 18:38:06,992 - INFO - 127.0.0.1 - - [19/Sep/2025 18:38:06] "[32mPOST /quiz/1 HTTP/1.1[0m" 302 -
+2025-09-19 18:38:07,001 - INFO - 127.0.0.1 - - [19/Sep/2025 18:38:07] "GET /quiz/2 HTTP/1.1" 200 -
+2025-09-19 18:38:07,021 - INFO - 127.0.0.1 - - [19/Sep/2025 18:38:07] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-19 18:38:07,023 - INFO - 127.0.0.1 - - [19/Sep/2025 18:38:07] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:38:07,029 - INFO - 127.0.0.1 - - [19/Sep/2025 18:38:07] "[36mGET /static/js/quiz.js HTTP/1.1[0m" 304 -
+2025-09-19 18:38:07,029 - INFO - 127.0.0.1 - - [19/Sep/2025 18:38:07] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:38:12,779 - INFO - 127.0.0.1 - - [19/Sep/2025 18:38:12] "[32mPOST /quiz/2 HTTP/1.1[0m" 302 -
+2025-09-19 18:38:12,788 - INFO - 127.0.0.1 - - [19/Sep/2025 18:38:12] "GET /quiz/result HTTP/1.1" 200 -
+2025-09-19 18:38:12,806 - INFO - 127.0.0.1 - - [19/Sep/2025 18:38:12] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-19 18:38:12,812 - INFO - 127.0.0.1 - - [19/Sep/2025 18:38:12] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:38:12,812 - INFO - 127.0.0.1 - - [19/Sep/2025 18:38:12] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:39:41,323 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/models.py', reloading
+2025-09-19 18:39:41,423 - INFO -  * Restarting with stat
+2025-09-19 18:39:41,729 - WARNING -  * Debugger is active!
+2025-09-19 18:39:41,734 - INFO -  * Debugger PIN: 436-508-465
+2025-09-19 18:39:46,819 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/models.py', reloading
+2025-09-19 18:39:46,904 - INFO -  * Restarting with stat
+2025-09-19 18:39:47,124 - WARNING -  * Debugger is active!
+2025-09-19 18:39:47,129 - INFO -  * Debugger PIN: 436-508-465
+2025-09-19 18:40:48,761 - INFO - 127.0.0.1 - - [19/Sep/2025 18:40:48] "GET / HTTP/1.1" 200 -
+2025-09-19 18:40:48,786 - INFO - 127.0.0.1 - - [19/Sep/2025 18:40:48] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:40:48,787 - INFO - 127.0.0.1 - - [19/Sep/2025 18:40:48] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-19 18:40:48,788 - INFO - 127.0.0.1 - - [19/Sep/2025 18:40:48] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:40:51,298 - INFO - 127.0.0.1 - - [19/Sep/2025 18:40:51] "GET /categories?sport_id=1 HTTP/1.1" 200 -
+2025-09-19 18:40:54,654 - INFO - 127.0.0.1 - - [19/Sep/2025 18:40:54] "[35m[1mPOST /start_quiz HTTP/1.1[0m" 500 -
+2025-09-19 18:40:54,665 - INFO - 127.0.0.1 - - [19/Sep/2025 18:40:54] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-19 18:40:54,667 - INFO - 127.0.0.1 - - [19/Sep/2025 18:40:54] "GET /start_quiz?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-09-19 18:40:54,668 - INFO - 127.0.0.1 - - [19/Sep/2025 18:40:54] "GET /start_quiz?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-09-19 18:40:54,684 - INFO - 127.0.0.1 - - [19/Sep/2025 18:40:54] "GET /start_quiz?__debugger__=yes&cmd=resource&f=console.png&s=Sc0eFM8EbVsKyvrkaWZS HTTP/1.1" 200 -
+2025-09-19 18:40:54,692 - INFO - 127.0.0.1 - - [19/Sep/2025 18:40:54] "GET /start_quiz?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-09-19 18:41:47,367 - INFO - 127.0.0.1 - - [19/Sep/2025 18:41:47] "[35m[1mPOST /start_quiz HTTP/1.1[0m" 500 -
+2025-09-19 18:41:47,378 - INFO - 127.0.0.1 - - [19/Sep/2025 18:41:47] "[36mGET /start_quiz?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:41:47,380 - INFO - 127.0.0.1 - - [19/Sep/2025 18:41:47] "[36mGET /start_quiz?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-09-19 18:41:47,382 - INFO - 127.0.0.1 - - [19/Sep/2025 18:41:47] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-19 18:41:47,395 - INFO - 127.0.0.1 - - [19/Sep/2025 18:41:47] "[36mGET /start_quiz?__debugger__=yes&cmd=resource&f=console.png&s=Sc0eFM8EbVsKyvrkaWZS HTTP/1.1[0m" 304 -
+2025-09-19 18:41:47,407 - INFO - 127.0.0.1 - - [19/Sep/2025 18:41:47] "[36mGET /start_quiz?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-09-19 18:42:09,323 - INFO - 127.0.0.1 - - [19/Sep/2025 18:42:09] "[32mPOST /start_quiz HTTP/1.1[0m" 302 -
+2025-09-19 18:42:09,336 - INFO - 127.0.0.1 - - [19/Sep/2025 18:42:09] "GET /quiz/1 HTTP/1.1" 200 -
+2025-09-19 18:42:09,347 - INFO - 127.0.0.1 - - [19/Sep/2025 18:42:09] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-19 18:42:09,351 - INFO - 127.0.0.1 - - [19/Sep/2025 18:42:09] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:42:09,352 - INFO - 127.0.0.1 - - [19/Sep/2025 18:42:09] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:42:09,353 - INFO - 127.0.0.1 - - [19/Sep/2025 18:42:09] "[36mGET /static/js/quiz.js HTTP/1.1[0m" 304 -
+2025-09-19 18:42:12,537 - INFO - 127.0.0.1 - - [19/Sep/2025 18:42:12] "[32mPOST /quiz/1 HTTP/1.1[0m" 302 -
+2025-09-19 18:42:12,543 - INFO - 127.0.0.1 - - [19/Sep/2025 18:42:12] "GET /quiz/2 HTTP/1.1" 200 -
+2025-09-19 18:42:12,558 - INFO - 127.0.0.1 - - [19/Sep/2025 18:42:12] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-19 18:42:12,561 - INFO - 127.0.0.1 - - [19/Sep/2025 18:42:12] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:42:12,562 - INFO - 127.0.0.1 - - [19/Sep/2025 18:42:12] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:42:12,562 - INFO - 127.0.0.1 - - [19/Sep/2025 18:42:12] "[36mGET /static/js/quiz.js HTTP/1.1[0m" 304 -
+2025-09-19 18:42:18,185 - INFO - 127.0.0.1 - - [19/Sep/2025 18:42:18] "[32mPOST /quiz/2 HTTP/1.1[0m" 302 -
+2025-09-19 18:42:18,207 - INFO - 127.0.0.1 - - [19/Sep/2025 18:42:18] "GET /quiz/result HTTP/1.1" 200 -
+2025-09-19 18:42:18,223 - INFO - 127.0.0.1 - - [19/Sep/2025 18:42:18] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-19 18:42:18,224 - INFO - 127.0.0.1 - - [19/Sep/2025 18:42:18] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:42:18,224 - INFO - 127.0.0.1 - - [19/Sep/2025 18:42:18] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:42:37,976 - INFO - 127.0.0.1 - - [19/Sep/2025 18:42:37] "GET / HTTP/1.1" 200 -
+2025-09-19 18:42:37,991 - INFO - 127.0.0.1 - - [19/Sep/2025 18:42:37] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-19 18:42:37,993 - INFO - 127.0.0.1 - - [19/Sep/2025 18:42:37] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:42:37,997 - INFO - 127.0.0.1 - - [19/Sep/2025 18:42:37] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:42:40,224 - INFO - 127.0.0.1 - - [19/Sep/2025 18:42:40] "GET /profile HTTP/1.1" 200 -
+2025-09-19 18:42:40,233 - INFO - 127.0.0.1 - - [19/Sep/2025 18:42:40] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-19 18:42:40,236 - INFO - 127.0.0.1 - - [19/Sep/2025 18:42:40] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:42:40,236 - INFO - 127.0.0.1 - - [19/Sep/2025 18:42:40] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:43:16,453 - INFO - 127.0.0.1 - - [19/Sep/2025 18:43:16] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-19 18:43:16,457 - INFO - 127.0.0.1 - - [19/Sep/2025 18:43:16] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:43:16,459 - INFO - 127.0.0.1 - - [19/Sep/2025 18:43:16] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-19 18:43:27,901 - INFO - 127.0.0.1 - - [19/Sep/2025 18:43:27] "GET /profile HTTP/1.1" 200 -
+2025-09-19 18:43:27,917 - INFO - 127.0.0.1 - - [19/Sep/2025 18:43:27] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-19 18:43:27,925 - INFO - 127.0.0.1 - - [19/Sep/2025 18:43:27] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:43:27,925 - INFO - 127.0.0.1 - - [19/Sep/2025 18:43:27] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:44:19,324 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/app.py', reloading
+2025-09-19 18:44:19,421 - INFO -  * Restarting with stat
+2025-09-19 18:44:19,703 - WARNING -  * Debugger is active!
+2025-09-19 18:44:19,707 - INFO -  * Debugger PIN: 436-508-465
+2025-09-19 18:44:23,714 - INFO - 127.0.0.1 - - [19/Sep/2025 18:44:23] "GET /profile HTTP/1.1" 200 -
+2025-09-19 18:44:23,731 - INFO - 127.0.0.1 - - [19/Sep/2025 18:44:23] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-19 18:44:23,735 - INFO - 127.0.0.1 - - [19/Sep/2025 18:44:23] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:44:23,736 - INFO - 127.0.0.1 - - [19/Sep/2025 18:44:23] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:45:07,269 - INFO - 127.0.0.1 - - [19/Sep/2025 18:45:07] "GET /profile HTTP/1.1" 200 -
+2025-09-19 18:45:07,280 - INFO - 127.0.0.1 - - [19/Sep/2025 18:45:07] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:45:07,282 - INFO - 127.0.0.1 - - [19/Sep/2025 18:45:07] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-19 18:45:07,282 - INFO - 127.0.0.1 - - [19/Sep/2025 18:45:07] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:46:55,159 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/app.py', reloading
+2025-09-19 18:46:55,242 - INFO -  * Restarting with stat
+2025-09-19 18:46:55,533 - WARNING -  * Debugger is active!
+2025-09-19 18:46:55,538 - INFO -  * Debugger PIN: 436-508-465
+2025-09-19 18:48:33,022 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/app.py', reloading
+2025-09-19 18:48:33,109 - INFO -  * Restarting with stat
+2025-09-19 18:48:33,406 - WARNING -  * Debugger is active!
+2025-09-19 18:48:33,410 - INFO -  * Debugger PIN: 436-508-465
+2025-09-19 18:48:46,606 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/app.py', reloading
+2025-09-19 18:48:46,685 - INFO -  * Restarting with stat
+2025-09-19 18:48:46,907 - WARNING -  * Debugger is active!
+2025-09-19 18:48:46,912 - INFO -  * Debugger PIN: 436-508-465
+2025-09-19 18:48:51,273 - INFO - 127.0.0.1 - - [19/Sep/2025 18:48:51] "GET / HTTP/1.1" 200 -
+2025-09-19 18:48:51,290 - INFO - 127.0.0.1 - - [19/Sep/2025 18:48:51] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-19 18:48:51,298 - INFO - 127.0.0.1 - - [19/Sep/2025 18:48:51] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:48:51,298 - INFO - 127.0.0.1 - - [19/Sep/2025 18:48:51] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:48:53,865 - INFO - 127.0.0.1 - - [19/Sep/2025 18:48:53] "GET /categories?sport_id=1 HTTP/1.1" 200 -
+2025-09-19 18:48:56,015 - INFO - 127.0.0.1 - - [19/Sep/2025 18:48:56] "[32mPOST /start_quiz HTTP/1.1[0m" 302 -
+2025-09-19 18:48:56,022 - INFO - 127.0.0.1 - - [19/Sep/2025 18:48:56] "GET / HTTP/1.1" 200 -
+2025-09-19 18:48:56,034 - INFO - 127.0.0.1 - - [19/Sep/2025 18:48:56] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-19 18:48:56,036 - INFO - 127.0.0.1 - - [19/Sep/2025 18:48:56] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:48:56,036 - INFO - 127.0.0.1 - - [19/Sep/2025 18:48:56] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:48:58,931 - INFO - 127.0.0.1 - - [19/Sep/2025 18:48:58] "GET /categories?sport_id=1 HTTP/1.1" 200 -
+2025-09-19 18:49:02,006 - INFO - 127.0.0.1 - - [19/Sep/2025 18:49:02] "[32mPOST /start_quiz HTTP/1.1[0m" 302 -
+2025-09-19 18:49:02,019 - INFO - 127.0.0.1 - - [19/Sep/2025 18:49:02] "GET /quiz/1 HTTP/1.1" 200 -
+2025-09-19 18:49:02,033 - INFO - 127.0.0.1 - - [19/Sep/2025 18:49:02] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:49:02,034 - INFO - 127.0.0.1 - - [19/Sep/2025 18:49:02] "[36mGET /static/js/quiz.js HTTP/1.1[0m" 304 -
+2025-09-19 18:49:02,035 - INFO - 127.0.0.1 - - [19/Sep/2025 18:49:02] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-19 18:49:02,035 - INFO - 127.0.0.1 - - [19/Sep/2025 18:49:02] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:49:04,953 - INFO - 127.0.0.1 - - [19/Sep/2025 18:49:04] "[32mPOST /quiz/1 HTTP/1.1[0m" 302 -
+2025-09-19 18:49:04,970 - INFO - 127.0.0.1 - - [19/Sep/2025 18:49:04] "GET /quiz/2 HTTP/1.1" 200 -
+2025-09-19 18:49:04,987 - INFO - 127.0.0.1 - - [19/Sep/2025 18:49:04] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-19 18:49:04,990 - INFO - 127.0.0.1 - - [19/Sep/2025 18:49:04] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:49:04,991 - INFO - 127.0.0.1 - - [19/Sep/2025 18:49:04] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:49:04,991 - INFO - 127.0.0.1 - - [19/Sep/2025 18:49:04] "[36mGET /static/js/quiz.js HTTP/1.1[0m" 304 -
+2025-09-19 18:49:07,046 - INFO - 127.0.0.1 - - [19/Sep/2025 18:49:07] "[32mPOST /quiz/2 HTTP/1.1[0m" 302 -
+2025-09-19 18:49:07,068 - INFO - 127.0.0.1 - - [19/Sep/2025 18:49:07] "GET /quiz/result HTTP/1.1" 200 -
+2025-09-19 18:49:07,086 - INFO - 127.0.0.1 - - [19/Sep/2025 18:49:07] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-19 18:49:07,090 - INFO - 127.0.0.1 - - [19/Sep/2025 18:49:07] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:49:07,091 - INFO - 127.0.0.1 - - [19/Sep/2025 18:49:07] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:49:39,664 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/app.py', reloading
+2025-09-19 18:49:39,746 - INFO -  * Restarting with stat
+2025-09-19 18:49:40,036 - WARNING -  * Debugger is active!
+2025-09-19 18:49:40,041 - INFO -  * Debugger PIN: 436-508-465
+2025-09-19 18:50:08,490 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/app.py', reloading
+2025-09-19 18:50:08,578 - INFO -  * Restarting with stat
+2025-09-19 18:50:08,793 - WARNING -  * Debugger is active!
+2025-09-19 18:50:08,797 - INFO -  * Debugger PIN: 436-508-465
+2025-09-19 18:50:09,816 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/app.py', reloading
+2025-09-19 18:50:09,893 - INFO -  * Restarting with stat
+2025-09-19 18:50:10,111 - WARNING -  * Debugger is active!
+2025-09-19 18:50:10,116 - INFO -  * Debugger PIN: 436-508-465
+2025-09-19 18:50:37,511 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/app.py', reloading
+2025-09-19 18:50:37,595 - INFO -  * Restarting with stat
+2025-09-19 18:50:37,803 - WARNING -  * Debugger is active!
+2025-09-19 18:50:37,808 - INFO -  * Debugger PIN: 436-508-465
+2025-09-19 18:50:38,826 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/app.py', reloading
+2025-09-19 18:50:38,910 - INFO -  * Restarting with stat
+2025-09-19 18:50:39,121 - WARNING -  * Debugger is active!
+2025-09-19 18:50:39,126 - INFO -  * Debugger PIN: 436-508-465
+2025-09-19 18:50:59,610 - INFO - 127.0.0.1 - - [19/Sep/2025 18:50:59] "GET / HTTP/1.1" 200 -
+2025-09-19 18:50:59,640 - INFO - 127.0.0.1 - - [19/Sep/2025 18:50:59] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-19 18:50:59,650 - INFO - 127.0.0.1 - - [19/Sep/2025 18:50:59] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:50:59,650 - INFO - 127.0.0.1 - - [19/Sep/2025 18:50:59] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:51:02,480 - INFO - 127.0.0.1 - - [19/Sep/2025 18:51:02] "GET /categories?sport_id=1 HTTP/1.1" 200 -
+2025-09-19 18:51:04,976 - INFO - 127.0.0.1 - - [19/Sep/2025 18:51:04] "[32mPOST /start_quiz HTTP/1.1[0m" 302 -
+2025-09-19 18:51:04,988 - INFO - 127.0.0.1 - - [19/Sep/2025 18:51:04] "GET /quiz/1 HTTP/1.1" 200 -
+2025-09-19 18:51:05,004 - INFO - 127.0.0.1 - - [19/Sep/2025 18:51:05] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:51:05,006 - INFO - 127.0.0.1 - - [19/Sep/2025 18:51:05] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-19 18:51:05,006 - INFO - 127.0.0.1 - - [19/Sep/2025 18:51:05] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:51:05,006 - INFO - 127.0.0.1 - - [19/Sep/2025 18:51:05] "[36mGET /static/js/quiz.js HTTP/1.1[0m" 304 -
+2025-09-19 18:51:07,747 - INFO - 127.0.0.1 - - [19/Sep/2025 18:51:07] "[32mPOST /quiz/1 HTTP/1.1[0m" 302 -
+2025-09-19 18:51:07,755 - INFO - 127.0.0.1 - - [19/Sep/2025 18:51:07] "GET /quiz/2 HTTP/1.1" 200 -
+2025-09-19 18:51:07,772 - INFO - 127.0.0.1 - - [19/Sep/2025 18:51:07] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-19 18:51:07,774 - INFO - 127.0.0.1 - - [19/Sep/2025 18:51:07] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:51:07,778 - INFO - 127.0.0.1 - - [19/Sep/2025 18:51:07] "[36mGET /static/js/quiz.js HTTP/1.1[0m" 304 -
+2025-09-19 18:51:07,778 - INFO - 127.0.0.1 - - [19/Sep/2025 18:51:07] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:51:11,875 - INFO - 127.0.0.1 - - [19/Sep/2025 18:51:11] "[32mPOST /quiz/2 HTTP/1.1[0m" 302 -
+2025-09-19 18:51:11,895 - INFO - 127.0.0.1 - - [19/Sep/2025 18:51:11] "GET /quiz/result HTTP/1.1" 200 -
+2025-09-19 18:51:11,914 - INFO - 127.0.0.1 - - [19/Sep/2025 18:51:11] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-19 18:51:11,916 - INFO - 127.0.0.1 - - [19/Sep/2025 18:51:11] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:51:11,917 - INFO - 127.0.0.1 - - [19/Sep/2025 18:51:11] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:51:34,889 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/app.py', reloading
+2025-09-19 18:51:34,986 - INFO -  * Restarting with stat
+2025-09-19 18:51:35,276 - WARNING -  * Debugger is active!
+2025-09-19 18:51:35,280 - INFO -  * Debugger PIN: 436-508-465
+2025-09-19 18:51:36,301 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/app.py', reloading
+2025-09-19 18:51:36,382 - INFO -  * Restarting with stat
+2025-09-19 18:51:36,591 - WARNING -  * Debugger is active!
+2025-09-19 18:51:36,595 - INFO -  * Debugger PIN: 436-508-465
+2025-09-19 18:51:38,629 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/app.py', reloading
+2025-09-19 18:51:38,709 - INFO -  * Restarting with stat
+2025-09-19 18:51:38,931 - WARNING -  * Debugger is active!
+2025-09-19 18:51:38,935 - INFO -  * Debugger PIN: 436-508-465
+2025-09-19 18:52:29,711 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/app.py', reloading
+2025-09-19 18:52:29,798 - INFO -  * Restarting with stat
+2025-09-19 18:52:30,017 - WARNING -  * Debugger is active!
+2025-09-19 18:52:30,021 - INFO -  * Debugger PIN: 436-508-465
+2025-09-19 18:58:33,390 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/app.py', reloading
+2025-09-19 18:58:33,467 - INFO -  * Restarting with stat
+2025-09-19 18:58:33,767 - WARNING -  * Debugger is active!
+2025-09-19 18:58:33,772 - INFO -  * Debugger PIN: 436-508-465
+2025-09-19 18:58:41,927 - INFO - 127.0.0.1 - - [19/Sep/2025 18:58:41] "GET / HTTP/1.1" 200 -
+2025-09-19 18:58:41,949 - INFO - 127.0.0.1 - - [19/Sep/2025 18:58:41] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-19 18:58:41,950 - INFO - 127.0.0.1 - - [19/Sep/2025 18:58:41] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:58:41,951 - INFO - 127.0.0.1 - - [19/Sep/2025 18:58:41] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:58:44,120 - INFO - 127.0.0.1 - - [19/Sep/2025 18:58:44] "GET / HTTP/1.1" 200 -
+2025-09-19 18:58:44,133 - INFO - 127.0.0.1 - - [19/Sep/2025 18:58:44] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-19 18:58:44,136 - INFO - 127.0.0.1 - - [19/Sep/2025 18:58:44] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:58:44,137 - INFO - 127.0.0.1 - - [19/Sep/2025 18:58:44] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:58:45,666 - INFO - 127.0.0.1 - - [19/Sep/2025 18:58:45] "GET /categories?sport_id=1 HTTP/1.1" 200 -
+2025-09-19 18:58:50,270 - INFO - 127.0.0.1 - - [19/Sep/2025 18:58:50] "[32mPOST /start_quiz HTTP/1.1[0m" 302 -
+2025-09-19 18:58:50,288 - INFO - 127.0.0.1 - - [19/Sep/2025 18:58:50] "GET /quiz/1 HTTP/1.1" 200 -
+2025-09-19 18:58:50,303 - INFO - 127.0.0.1 - - [19/Sep/2025 18:58:50] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-19 18:58:50,305 - INFO - 127.0.0.1 - - [19/Sep/2025 18:58:50] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:58:50,308 - INFO - 127.0.0.1 - - [19/Sep/2025 18:58:50] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:58:50,309 - INFO - 127.0.0.1 - - [19/Sep/2025 18:58:50] "[36mGET /static/js/quiz.js HTTP/1.1[0m" 304 -
+2025-09-19 18:58:54,538 - INFO - 127.0.0.1 - - [19/Sep/2025 18:58:54] "[32mPOST /quiz/1 HTTP/1.1[0m" 302 -
+2025-09-19 18:58:54,548 - INFO - 127.0.0.1 - - [19/Sep/2025 18:58:54] "GET /quiz/2 HTTP/1.1" 200 -
+2025-09-19 18:58:54,568 - INFO - 127.0.0.1 - - [19/Sep/2025 18:58:54] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-19 18:58:54,570 - INFO - 127.0.0.1 - - [19/Sep/2025 18:58:54] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 18:58:54,574 - INFO - 127.0.0.1 - - [19/Sep/2025 18:58:54] "[36mGET /static/js/quiz.js HTTP/1.1[0m" 304 -
+2025-09-19 18:58:54,574 - INFO - 127.0.0.1 - - [19/Sep/2025 18:58:54] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:58:56,432 - INFO - 127.0.0.1 - - [19/Sep/2025 18:58:56] "[35m[1mPOST /quiz/2 HTTP/1.1[0m" 500 -
+2025-09-19 18:58:56,445 - INFO - 127.0.0.1 - - [19/Sep/2025 18:58:56] "GET /quiz/2?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-09-19 18:58:56,445 - INFO - 127.0.0.1 - - [19/Sep/2025 18:58:56] "GET /quiz/2?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-09-19 18:58:56,447 - INFO - 127.0.0.1 - - [19/Sep/2025 18:58:56] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-19 18:58:56,455 - INFO - 127.0.0.1 - - [19/Sep/2025 18:58:56] "GET /quiz/2?__debugger__=yes&cmd=resource&f=console.png&s=LjFkeUPSCYlO7zicuIsD HTTP/1.1" 200 -
+2025-09-19 18:58:56,463 - INFO - 127.0.0.1 - - [19/Sep/2025 18:58:56] "GET /quiz/2?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-09-19 18:59:19,494 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/app.py', reloading
+2025-09-19 18:59:19,578 - INFO -  * Restarting with stat
+2025-09-19 18:59:19,878 - WARNING -  * Debugger is active!
+2025-09-19 18:59:19,883 - INFO -  * Debugger PIN: 436-508-465
+2025-09-19 18:59:21,066 - INFO - 127.0.0.1 - - [19/Sep/2025 18:59:21] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-19 18:59:22,318 - INFO - 127.0.0.1 - - [19/Sep/2025 18:59:22] "[32mPOST /quiz/2 HTTP/1.1[0m" 302 -
+2025-09-19 18:59:22,334 - INFO - 127.0.0.1 - - [19/Sep/2025 18:59:22] "GET /quiz/result HTTP/1.1" 200 -
+2025-09-19 18:59:22,350 - INFO - 127.0.0.1 - - [19/Sep/2025 18:59:22] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-19 18:59:22,355 - INFO - 127.0.0.1 - - [19/Sep/2025 18:59:22] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 18:59:22,355 - INFO - 127.0.0.1 - - [19/Sep/2025 18:59:22] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 19:00:04,308 - INFO - 127.0.0.1 - - [19/Sep/2025 19:00:04] "GET / HTTP/1.1" 200 -
+2025-09-19 19:00:04,321 - INFO - 127.0.0.1 - - [19/Sep/2025 19:00:04] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-19 19:00:04,323 - INFO - 127.0.0.1 - - [19/Sep/2025 19:00:04] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 19:00:04,324 - INFO - 127.0.0.1 - - [19/Sep/2025 19:00:04] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 19:00:05,566 - INFO - 127.0.0.1 - - [19/Sep/2025 19:00:05] "GET /admin HTTP/1.1" 200 -
+2025-09-19 19:00:05,581 - INFO - 127.0.0.1 - - [19/Sep/2025 19:00:05] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-19 19:00:05,583 - INFO - 127.0.0.1 - - [19/Sep/2025 19:00:05] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 19:00:05,588 - INFO - 127.0.0.1 - - [19/Sep/2025 19:00:05] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 19:00:06,549 - INFO - 127.0.0.1 - - [19/Sep/2025 19:00:06] "GET /profile HTTP/1.1" 200 -
+2025-09-19 19:00:06,563 - INFO - 127.0.0.1 - - [19/Sep/2025 19:00:06] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 19:00:06,565 - INFO - 127.0.0.1 - - [19/Sep/2025 19:00:06] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-19 19:00:06,566 - INFO - 127.0.0.1 - - [19/Sep/2025 19:00:06] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 19:37:07,129 - INFO - 127.0.0.1 - - [19/Sep/2025 19:37:07] "GET / HTTP/1.1" 200 -
+2025-09-19 19:37:07,142 - INFO - 127.0.0.1 - - [19/Sep/2025 19:37:07] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 19:37:07,142 - INFO - 127.0.0.1 - - [19/Sep/2025 19:37:07] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-19 19:37:07,927 - INFO - 127.0.0.1 - - [19/Sep/2025 19:37:07] "GET /profile HTTP/1.1" 200 -
+2025-09-19 19:37:07,941 - INFO - 127.0.0.1 - - [19/Sep/2025 19:37:07] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-19 19:37:07,942 - INFO - 127.0.0.1 - - [19/Sep/2025 19:37:07] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-22 12:02:50,187 - INFO - 127.0.0.1 - - [22/Sep/2025 12:02:50] "GET /admin/dashboard HTTP/1.1" 200 -
+2025-09-22 12:02:50,200 - INFO - 127.0.0.1 - - [22/Sep/2025 12:02:50] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-22 12:02:50,200 - INFO - 127.0.0.1 - - [22/Sep/2025 12:02:50] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-22 12:02:51,093 - INFO - 127.0.0.1 - - [22/Sep/2025 12:02:51] "GET / HTTP/1.1" 200 -
+2025-09-22 12:02:51,105 - INFO - 127.0.0.1 - - [22/Sep/2025 12:02:51] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-22 12:02:51,106 - INFO - 127.0.0.1 - - [22/Sep/2025 12:02:51] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-22 13:02:52,602 - INFO - 127.0.0.1 - - [22/Sep/2025 13:02:52] "GET / HTTP/1.1" 200 -
+2025-09-22 13:02:52,617 - INFO - 127.0.0.1 - - [22/Sep/2025 13:02:52] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-22 13:02:52,618 - INFO - 127.0.0.1 - - [22/Sep/2025 13:02:52] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -

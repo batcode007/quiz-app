@@ -78,7 +78,10 @@ class Category(db.Model):
     name = db.Column(db.String(100), nullable=False, unique=True)
     description = db.Column(db.Text)
     sport_id = db.Column(db.Integer, db.ForeignKey('sport.id'), nullable=False)
+    is_deleted = db.Column(db.Boolean, default=False)
+    question_count = db.Column(db.Integer, default=0)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    updated_at = db.Column(db.DateTime, default=datetime.utcnow)
     
     questions = db.relationship('Question', backref='category', lazy=True)
     
@@ -120,7 +123,7 @@ class Quiz(db.Model):
     total_questions = db.Column(db.Integer, nullable=False)
     time_taken = db.Column(db.Integer)
     completed_at = db.Column(db.DateTime, default=datetime.utcnow)
-    
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
     category = db.relationship('Category', backref='quizzes')
     answers = db.relationship('QuizAnswer', backref='quiz', lazy=True)
     
@@ -137,7 +140,8 @@ class QuizAnswer(db.Model):
     user_answer = db.Column(db.String(500))
     is_correct = db.Column(db.Boolean, default=False)
     time_taken = db.Column(db.Integer)
-    
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+
     question = db.relationship('Question', backref='quiz_answers')
     
     __table_args__ = (
@@ -150,6 +154,7 @@ class Settings(db.Model):
     key = db.Column(db.String(50), unique=True, nullable=False)
     value = db.Column(db.String(255), nullable=False)
     description = db.Column(db.Text)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
     
     __table_args__ = (

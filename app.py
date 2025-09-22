@@ -53,7 +53,7 @@ def create_app():
             if 'user_id' in session:
                 user = User.query.get(session['user_id'])
                 sports = Sport.query.all()
-                categories = Category.query.all()
+                categories = Category.query.filter(Category.question_count>0).all()
                 return render_template('index.html', user=user, sports=sports, categories=categories)
             return redirect(url_for('login'))
 
@@ -216,20 +216,26 @@ def create_app():
                 return redirect(url_for('admin_login'))
             
             data = request.get_json()
-            
+            category_id = data['category_id']
             question = Question(
                 text=data['text'],
                 question_type=data['type'],
                 difficulty=data['difficulty'],
                 correct_answer=data['correct_answer'],
                 explanation=data.get('explanation', ''),
-                category_id=data['category_id']
+                category_id=category_id
             )
             
             if data['type'] == 'mcq':
                 question.set_options(data['options'])
             
             db.session.add(question)
+
+            category = Category.query.get(category_id)
+            category.updated_at = datetime.utcnow()
+            category.question_count = (category.question_count or 0) + 1
+            db.session.add(category)
+
             db.session.commit()
             
             return jsonify({'success': True})
@@ -268,6 +274,7 @@ def create_app():
             # Paginate quiz history
             page = request.args.get('page', 1, type=int)
             quiz_history = Quiz.query.filter_by(user_id=user.id).order_by(Quiz.completed_at.desc()).paginate(page=page, per_page=5, error_out=False)
+            print('quiz_history',quiz_history)
             return render_template('profile.html', user=user, stats=stats, category_stats=category_stats, quiz_history=quiz_history)
     
         @app.route('/start_quiz', methods=['GET', 'POST'])
@@ -275,9 +282,7 @@ def create_app():
             if 'user_id' not in session:
                 return redirect(url_for('login'))
             # data = request.get_json()
-            print("Form data:", request.form)
-            print("Raw data:", request.get_data())
-
+            
             category_id = request.form.get('category_id')
             difficulty = request.form.get('difficulty')
 
@@ -286,7 +291,7 @@ def create_app():
             if not all([category_id, difficulty]):
                 flash('Missing required fields')
                 return redirect(url_for('index'))
-                return jsonify({'error': 'Missing required fields'}), 400
+                # return jsonify({'error': 'Missing required fields'}), 400
             
             quiz_length_setting = Settings.query.filter_by(key='default_quiz_length').first()
             quiz_length = int(quiz_length_setting.value) if quiz_length_setting else 10
@@ -364,13 +369,10 @@ def create_app():
                 if request.form.get('action') == 'next' and question_num < total_questions:
                     return redirect(url_for('quiz_question', question_num=question_num + 1))
                 elif request.form.get('action') == 'submit' or question_num == total_questions:
-                    return redirect(url_for('quiz_result'))
+                    print('debug check')
+                    return quiz_submit()
+                    # return redirect(url_for('quiz_result'))
             
-                # return render_template('quiz_question.html',
-                #                      question=question,
-                #                      question_num=question_num,
-                #                      total_questions=total_questions,
-                #                      progress=progress)
             return render_template('quiz_question.html',
                                  question=question,
                                  question_num=question_num,
@@ -417,11 +419,13 @@ def create_app():
                 time_taken=time_taken
             )
             db.session.add(quiz_answer)
-            
+            print('is_correct',is_correct)
             # Update quiz score
             if is_correct:
                 quiz.score += 1
+                print('checking')
                 db.session.commit()
+                print('checking123')
             
             db.session.commit()
             
@@ -473,9 +477,10 @@ def create_app():
             if not quiz:
                 flash('Quiz not found')
                 return redirect(url_for('index'))
-            print('sesion', session)
+            print('checkkkkkkkkkk', session['score'])
             quiz.score = session['score']
             quiz.time_taken = sum(answer['time_taken'] for answer in session['answers'])
+            # print('checkkkkkkkkkkinggggg', quiz['time_taken'])
             quiz.completed_at = datetime.utcnow()
             db.session.commit()
             

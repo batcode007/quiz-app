@@ -22,12 +22,12 @@
             </div>
 
             <div class="bg-blue-50 p-6 rounded-lg">
-                <h3 class="text-2xl font-semibold text-blue-800 mb-4">Categories</h3>
+                <h3 class="text-2xl font-semibold text-blue-800 mb-4">Sports</h3>
                 <div class="space-y-2">
-                    {% for category in categories %}
+                    {% for sport in sports %}
                     <div class="bg-white p-3 rounded border-l-4 border-blue-400">
-                        <h4 class="font-semibold text-blue-800">{{ category.name }} ({{ category.sport.name }})</h4>
-                        <p class="text-sm text-blue-600">{{ category.description }}</p>
+                        <h4 class="font-semibold text-blue-800">{{ sport.name }}</h4>
+                        <p class="text-sm text-blue-600">{{ sport.description }}</p>
                     </div>
                     {% endfor %}
                 </div>
