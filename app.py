@@ -23,7 +23,7 @@ app.config['ADMIN_PASSWORD_HASH'] = os.getenv('ADMIN_PASSWORD_HASH', 'admin')
 
 migrate = Migrate()
 
-def create_app():
+def create_app(host=None, port=None):
     # Initialize the app with SQLAlchemy using the db from models.py
     db.init_app(app)
     migrate.init_app(app, db)
@@ -562,4 +562,4 @@ def create_app():
 
 if __name__ == '__main__':
     app = create_app()
-    app.run(debug=True)
+    app.run(debug=True, host='127.0.0.1', port=5000)
