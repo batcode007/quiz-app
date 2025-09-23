@@ -1,4 +1,4 @@
-// Cricket Quiz App JavaScript
+// Quiz App JavaScript
 
 class QuizApp {
     constructor() {

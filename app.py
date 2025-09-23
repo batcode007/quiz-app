@@ -206,9 +206,10 @@ def create_app(host=None, port=None):
                 db.session.commit()
                 flash('Question added successfully!')
                 return redirect(url_for('admin_dashboard'))
-            
-            categories = Category.query.all()
-            return render_template('admin/add_question.html', categories=categories)
+            # sports = Sport.query.filter(Sport.deleted_at.isnot(None)).all()
+            sports = Sport.query.all()
+            # categories = Category.query.all()
+            return render_template('admin/add_question.html', sports = sports)
 
         @app.route('/admin/save_question', methods=['POST'])
         def admin_save_question():
@@ -217,13 +218,15 @@ def create_app(host=None, port=None):
             
             data = request.get_json()
             category_id = data['category_id']
+            sport_id = data['sport_id']
             question = Question(
                 text=data['text'],
                 question_type=data['type'],
                 difficulty=data['difficulty'],
                 correct_answer=data['correct_answer'],
                 explanation=data.get('explanation', ''),
-                category_id=category_id
+                category_id=category_id,
+                sport_id =sport_id
             )
             
             if data['type'] == 'mcq':

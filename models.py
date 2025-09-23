@@ -66,7 +66,7 @@ class Sport(db.Model):
     name = db.Column(db.String(100), nullable=False, unique=True)
     description = db.Column(db.Text)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
-    
+    deleted_at = db.Column(db.DateTime, default=datetime.utcnow)
     categories = db.relationship('Category', backref='sport', lazy=True)
     
     __table_args__ = (
@@ -99,6 +99,7 @@ class Question(db.Model):
     correct_answer = db.Column(db.String(500), nullable=False)
     explanation = db.Column(db.Text)
     category_id = db.Column(db.Integer, db.ForeignKey('category.id'), nullable=False)
+    sport_id = db.Column(db.Integer, db.ForeignKey('sport.id'), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     
     def get_options(self):

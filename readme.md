@@ -1,8 +1,8 @@
-# 🏏 Cricket Quiz App
+# 🏏 Quiz App
 
-A comprehensive web-based cricket quiz application built with Flask and PostgreSQL, featuring multiple question types, difficulty levels, real-time scoring, and an admin panel for content management.
+A comprehensive web-based quiz application built with Flask and PostgreSQL, featuring multiple question types, difficulty levels, real-time scoring, and an admin panel for content management.
 
-![Cricket Quiz App](https://img.shields.io/badge/Python-3.8+-blue.svg)
+![Quiz App](https://img.shields.io/badge/Python-3.8+-blue.svg)
 ![Flask](https://img.shields.io/badge/Flask-2.3.3-green.svg)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-13+-blue.svg)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)

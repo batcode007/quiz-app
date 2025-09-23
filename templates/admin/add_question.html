@@ -14,6 +14,40 @@
 
     <div class="bg-white rounded-lg shadow-xl p-8">
         <form id="question-form" class="space-y-6">
+            <!-- Sport Selection -->
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Sport Name</label>
+                <select id="sport" required onchange="updateCategories()"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="">Select Sport</option>
+                    {% for sport in sports %}
+                    <option value="{{ sport.id }}">{{ sport.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <!-- Category Selection -->
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Category</label>
+                <select id="category" required
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="">Select Category</option>
+                    <!-- Populated dynamically via JavaScript -->
+                </select>
+            </div>
+
+            <!-- Difficulty Selection -->
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Difficulty</label>
+                <select id="difficulty" required
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="">Select Difficulty</option>
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+
             <!-- Question Text -->
             <div>
                 <label class="block text-sm font-medium text-gray-700 mb-2">Question Text</label>
@@ -42,32 +76,6 @@
                     <input type="text" id="option-2" class="w-full px-3 py-2 border border-gray-300 rounded-md" placeholder="Option B">
                     <input type="text" id="option-3" class="w-full px-3 py-2 border border-gray-300 rounded-md" placeholder="Option C">
                     <input type="text" id="option-4" class="w-full px-3 py-2 border border-gray-300 rounded-md" placeholder="Option D">
-                </div>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-6">
-                <!-- Category -->
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Category</label>
-                    <select id="category" required
-                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <option value="">Select Category</option>
-                        {% for category in categories %}
-                        <option value="{{ category.id }}">{{ category.name }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-
-                <!-- Difficulty -->
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Difficulty</label>
-                    <select id="difficulty" required
-                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <option value="">Select Difficulty</option>
-                        <option value="easy">Easy</option>
-                        <option value="medium">Medium</option>
-                        <option value="hard">Hard</option>
-                    </select>
                 </div>
             </div>
 
@@ -103,19 +111,38 @@
 </div>
 
 <script>
+function updateCategories() {
+    const sportId = document.getElementById('sport').value;
+    const categorySelect = document.getElementById('category');
+    categorySelect.innerHTML = '<option value="">Select Category</option>';
+
+    if (sportId) {
+        // Simulate fetching categories (replace with actual API call if needed)
+        fetch(`/categories?sport_id=${sportId}`)
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(category => {
+                    const option = document.createElement('option');
+                    option.value = category.id;
+                    option.textContent = category.name;
+                    categorySelect.appendChild(option);
+                });
+            })
+            .catch(error => console.error('Error fetching categories:', error));
+    }
+}
+
 function toggleOptions() {
     const type = document.getElementById('question-type').value;
     const mcqOptions = document.getElementById('mcq-options');
     
     if (type === 'mcq') {
         mcqOptions.classList.remove('hidden');
-        // Make options required
         for (let i = 1; i <= 4; i++) {
             document.getElementById(`option-${i}`).required = true;
         }
     } else {
         mcqOptions.classList.add('hidden');
-        // Remove required from options
         for (let i = 1; i <= 4; i++) {
             document.getElementById(`option-${i}`).required = false;
         }
@@ -125,6 +152,7 @@ function toggleOptions() {
 function resetForm() {
     document.getElementById('question-form').reset();
     document.getElementById('mcq-options').classList.add('hidden');
+    document.getElementById('category').innerHTML = '<option value="">Select Category</option>';
 }
 
 document.getElementById('question-form').addEventListener('submit', async function(e) {
@@ -132,10 +160,11 @@ document.getElementById('question-form').addEventListener('submit', async functi
     
     const type = document.getElementById('question-type').value;
     const formData = {
-        text: document.getElementById('question-text').value,
-        type: type,
+        sport_id: document.getElementById('sport').value,
         category_id: document.getElementById('category').value,
         difficulty: document.getElementById('difficulty').value,
+        text: document.getElementById('question-text').value,
+        type: type,
         correct_answer: document.getElementById('correct-answer').value,
         explanation: document.getElementById('explanation').value
     };
