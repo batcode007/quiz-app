@@ -11,7 +11,13 @@
     <nav class="bg-white shadow-lg">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center py-4">
-                <h1 class="text-2xl font-bold text-green-600">🏏Quiz</h1>
+                <!-- Logo and Title grouped together -->
+                <div class="flex items-center space-x-3">
+                    <img src="/static/images/logo.png" alt="Quiz Logo" class="h-10 w-10 object-contain">
+                    <h1 class="text-2xl font-bold text-green-600">Quiz App</h1>
+                </div>
+                
+                <!-- Navigation Links -->
                 <div class="flex items-center space-x-4">
                     {% if session.user_id %}
                         <span class="text-gray-600">Welcome, {{ session.username }}!</span>

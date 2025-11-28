@@ -1,0 +1,114 @@
+<ol class="section-items" id="section-items-quiz-categories">
+ <li id="item-all-quiz-categories">
+  <a class="section-item" href="/categories/">
+   <span class="primary">
+    All Quiz Categories
+   </span>
+  </a>
+ </li>
+ <li id="item-sports">
+  <a class="section-item" href="/games/category/sports">
+   <span class="primary">
+    Sports
+   </span>
+  </a>
+ </li>
+ <li id="item-geography">
+  <a class="section-item" href="/games/category/geography">
+   <span class="primary">
+    Geography
+   </span>
+  </a>
+ </li>
+ <li id="item-music">
+  <a class="section-item" href="/games/category/music">
+   <span class="primary">
+    Music
+   </span>
+  </a>
+ </li>
+ <li id="item-movies">
+  <a class="section-item" href="/games/category/movies">
+   <span class="primary">
+    Movies
+   </span>
+  </a>
+ </li>
+ <li id="item-television">
+  <a class="section-item" href="/games/category/television">
+   <span class="primary">
+    Television
+   </span>
+  </a>
+ </li>
+ <li id="item-just-for-fun">
+  <a class="section-item" href="/games/category/fun">
+   <span class="primary">
+    Just For Fun
+   </span>
+  </a>
+ </li>
+ <li id="item-miscellaneous">
+  <a class="section-item" href="/games/category/miscellaneous">
+   <span class="primary">
+    Miscellaneous
+   </span>
+  </a>
+ </li>
+ <li id="item-history">
+  <a class="section-item" href="/games/category/history">
+   <span class="primary">
+    History
+   </span>
+  </a>
+ </li>
+ <li id="item-literature">
+  <a class="section-item" href="/games/category/literature">
+   <span class="primary">
+    Literature
+   </span>
+  </a>
+ </li>
+ <li id="item-language">
+  <a class="section-item" href="/games/category/language">
+   <span class="primary">
+    Language
+   </span>
+  </a>
+ </li>
+ <li id="item-science">
+  <a class="section-item" href="/games/category/science">
+   <span class="primary">
+    Science
+   </span>
+  </a>
+ </li>
+ <li id="item-gaming">
+  <a class="section-item" href="/games/category/gaming">
+   <span class="primary">
+    Gaming
+   </span>
+  </a>
+ </li>
+ <li id="item-entertainment">
+  <a class="section-item" href="/games/category/entertainment">
+   <span class="primary">
+    Entertainment
+   </span>
+  </a>
+ </li>
+ <li id="item-religion">
+  <a class="section-item" href="/games/category/religion">
+   <span class="primary">
+    Religion
+   </span>
+  </a>
+ </li>
+ <li id="item-holiday">
+  <a class="section-item" href="/games/category/holiday">
+   <span class="primary">
+    Holiday
+   </span>
+  </a>
+ </li>
+</ol>
