@@ -15,8 +15,16 @@ from models import db  # Import db from models.py
 load_dotenv()
 
 # Create Flask app instance
-# Use /tmp for instance path on Vercel (read-only filesystem), normal path locally
-if os.getenv('VERCEL'):
+# Use /tmp for instance path on Vercel/serverless (read-only filesystem), normal path locally
+# Check for multiple serverless indicators
+is_serverless = (
+    os.getenv('VERCEL') or
+    os.getenv('AWS_LAMBDA_FUNCTION_NAME') or
+    os.getenv('FUNCTION_NAME') or
+    not os.access('.', os.W_OK)  # Check if current directory is writable
+)
+
+if is_serverless:
     app = Flask(__name__, instance_path='/tmp')
 else:
     app = Flask(__name__)
@@ -27,8 +35,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['ADMIN_USERNAME'] = os.getenv('ADMIN_USERNAME', 'admin')
 app.config['ADMIN_PASSWORD_HASH'] = os.getenv('ADMIN_PASSWORD_HASH', 'admin')
 
-# Add connection pooling for better performance in production
-if os.getenv('VERCEL') or os.getenv('FLASK_ENV') == 'production':
+# Add connection pooling for better performance in production/serverless
+if is_serverless or os.getenv('FLASK_ENV') == 'production':
     app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
         'pool_pre_ping': True,
         'pool_recycle': 300,
@@ -45,9 +53,9 @@ def create_app(host=None, port=None):
     with app.app_context():
         from models import User, Sport, Category, Question, Quiz, QuizAnswer, Settings
 
-        # Logging configuration - use stdout on Vercel, file locally
-        if os.getenv('VERCEL'):
-            # On Vercel, log to stdout (visible in Vercel logs)
+        # Logging configuration - use stdout on serverless, file locally
+        if is_serverless:
+            # On serverless platforms, log to stdout (visible in platform logs)
             logging.basicConfig(
                 level=logging.INFO,
                 format='%(asctime)s - %(levelname)s - %(message)s',

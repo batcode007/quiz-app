@@ -320,6 +320,12 @@ Configure these in Vercel dashboard (Settings → Environment Variables):
 - **Database connections**: Connection pooling is limited
 - **File uploads**: Use S3 or similar, not local filesystem
 - **Background jobs**: Not supported (use external task queue)
+- **Read-only filesystem**: Only `/tmp` is writable (app.py handles this automatically)
+
+**Note**: The application detects Vercel environment (`VERCEL` env var) and automatically:
+- Uses `/tmp` as Flask instance path (Vercel's filesystem is read-only)
+- Logs to stdout instead of file (visible in Vercel logs)
+- Enables database connection pooling
 
 **Recommendation**: Consider using Heroku, Railway, or Render for traditional Flask apps with persistent connections.
 
@@ -347,6 +353,26 @@ These platforms are better suited for Flask applications with SQLAlchemy and per
 9. Configure logging to stdout for platform log aggregation
 
 ## Common Issues
+
+### Vercel Deployment Errors
+
+**Error: `OSError: [Errno 30] Read-only file system: '/var/task/instance'`**
+
+This error occurs because Vercel's filesystem is read-only except for `/tmp`. The fix is already implemented in `app.py`:
+- The app detects the `VERCEL` environment variable
+- Automatically uses `/tmp` as the instance path on Vercel
+- Uses normal instance path for local development
+
+**Error: `pg_config executable not found` during `psycopg2-binary` installation**
+
+Solution: Use `psycopg2-binary==2.9.9` or newer in `requirements.txt`. Older versions (2.9.7 and below) have build issues on Vercel.
+
+**Error: Environment variables not found**
+
+Ensure all required environment variables are set in Vercel dashboard:
+- Go to Project Settings → Environment Variables
+- Add: `DATABASE_URL`, `SECRET_KEY`, `ADMIN_USERNAME`, `ADMIN_PASSWORD_HASH`
+- Redeploy after adding variables
 
 ### Circular Import Error
 
