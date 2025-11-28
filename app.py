@@ -11,9 +11,15 @@ import logging
 
 from models import db  # Import db from models.py
 
-# Create Flask app instance
-app = Flask(__name__)
+# Load environment variables first
 load_dotenv()
+
+# Create Flask app instance
+# Use /tmp for instance path on Vercel (read-only filesystem), normal path locally
+if os.getenv('VERCEL'):
+    app = Flask(__name__, instance_path='/tmp')
+else:
+    app = Flask(__name__)
 
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'your-secret-key')
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'sqlite:///quiz.db')
@@ -21,19 +27,39 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['ADMIN_USERNAME'] = os.getenv('ADMIN_USERNAME', 'admin')
 app.config['ADMIN_PASSWORD_HASH'] = os.getenv('ADMIN_PASSWORD_HASH', 'admin')
 
+# Add connection pooling for better performance in production
+if os.getenv('VERCEL') or os.getenv('FLASK_ENV') == 'production':
+    app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
+        'pool_pre_ping': True,
+        'pool_recycle': 300,
+    }
+
 migrate = Migrate()
 
 def create_app(host=None, port=None):
     # Initialize the app with SQLAlchemy using the db from models.py
     db.init_app(app)
     migrate.init_app(app, db)
-    
+
     # Import models after app initialization to avoid circular imports
     with app.app_context():
         from models import User, Sport, Category, Question, Quiz, QuizAnswer, Settings
-        
-        # Logging configuration
-        logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+        # Logging configuration - use stdout on Vercel, file locally
+        if os.getenv('VERCEL'):
+            # On Vercel, log to stdout (visible in Vercel logs)
+            logging.basicConfig(
+                level=logging.INFO,
+                format='%(asctime)s - %(levelname)s - %(message)s',
+                handlers=[logging.StreamHandler()]
+            )
+        else:
+            # Local development: log to file
+            logging.basicConfig(
+                filename='app.log',
+                level=logging.INFO,
+                format='%(asctime)s - %(levelname)s - %(message)s'
+            )
         
 
         # Authentication decorator
