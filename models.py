@@ -10,11 +10,17 @@ class User(db.Model):
     username = db.Column(db.String(80), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password_hash = db.Column(db.String(255), nullable=False)
-    full_name = db.Column(db.String(100), nullable=False)
+    first_name = db.Column(db.String(50), nullable=False)
+    last_name = db.Column(db.String(50), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     last_login = db.Column(db.DateTime)
-    
+
     quizzes = db.relationship('Quiz', backref='user', lazy=True)
+
+    @property
+    def full_name(self):
+        """Return full name from first and last name"""
+        return f"{self.first_name} {self.last_name}"
     
     def set_password(self, password):
         from werkzeug.security import generate_password_hash

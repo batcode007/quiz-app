@@ -101,10 +101,33 @@ def create_app(host=None, port=None):
                 username = data.get('username')
                 email = data.get('email')
                 password = data.get('password')
-                full_name = data.get('full_name')
+                first_name = data.get('first_name')
+                last_name = data.get('last_name')
 
-                if not all([username, email, password, full_name]):
+                if not all([username, email, password, first_name, last_name]):
                     return jsonify({'error': 'All fields are required'}), 400
+
+                # Validate email format
+                import re
+                email_pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+                if not re.match(email_pattern, email):
+                    return jsonify({'error': 'Invalid email format. Please enter a valid email address.'}), 400
+
+                # Validate password strength
+                if len(password) < 8:
+                    return jsonify({'error': 'Password must be at least 8 characters long'}), 400
+
+                if not re.search(r'[A-Z]', password):
+                    return jsonify({'error': 'Password must contain at least one uppercase letter'}), 400
+
+                if not re.search(r'[a-z]', password):
+                    return jsonify({'error': 'Password must contain at least one lowercase letter'}), 400
+
+                if not re.search(r'\d', password):
+                    return jsonify({'error': 'Password must contain at least one number'}), 400
+
+                if not re.search(r'[!@#$%^&*(),.?":{}|<>]', password):
+                    return jsonify({'error': 'Password must contain at least one special character (!@#$%^&*(),.?":{}|<>)'}), 400
 
                 if User.query.filter_by(username=username).first():
                     return jsonify({'error': 'Username already exists'}), 400
@@ -112,7 +135,7 @@ def create_app(host=None, port=None):
                 if User.query.filter_by(email=email).first():
                     return jsonify({'error': 'Email already exists'}), 400
 
-                user = User(username=username, email=email, full_name=full_name)
+                user = User(username=username, email=email, first_name=first_name, last_name=last_name)
                 user.set_password(password)
                 db.session.add(user)
                 db.session.commit()

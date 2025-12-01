@@ -1,88 +1,108 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="max-w-4xl mx-auto">
-    <div class="bg-white rounded-lg shadow-xl p-8 mb-8">
+<div class="max-w-6xl mx-auto">
+    <!-- Hero Section -->
+    <div class="bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600 rounded-2xl shadow-2xl p-12 mb-8 text-white">
         <div class="text-center mb-8">
-            <h2 class="text-4xl font-bold text-gray-800 mb-4">Welcome to Sports Quiz!</h2>
-            <p class="text-xl text-gray-600">Test your sports knowledge with our interactive quiz</p>
+            <div class="flex justify-center mb-6">
+                <div class="text-8xl animate-bounce">🧠</div>
+            </div>
+            <h1 class="text-5xl font-extrabold mb-4 tracking-tight">Challenge Your Knowledge!</h1>
+            <p class="text-2xl font-light opacity-90">Test yourself with engaging quizzes across multiple topics</p>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-8">
-            <div class="bg-green-50 p-6 rounded-lg">
-                <h3 class="text-2xl font-semibold text-green-800 mb-4">Quiz Features</h3>
-                <ul class="space-y-2 text-green-700">
-                    <li>✅ Multiple questions per quiz</li>
-                    <li>✅ 60 seconds per question</li>
-                    <li>✅ Multiple difficulty levels</li>
-                    <li>✅ Various question types</li>
-                    <li>✅ Detailed explanations</li>
-                    <li>✅ Score tracking</li>
-                </ul>
+        <div class="grid md:grid-cols-3 gap-6 mt-8">
+            <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-opacity-30 transition duration-300">
+                <div class="text-4xl mb-3">⚡</div>
+                <h4 class="font-bold text-lg mb-2">Timed Challenge</h4>
+                <p class="text-sm opacity-90">60 seconds per question keeps you on your toes</p>
             </div>
+            <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-opacity-30 transition duration-300">
+                <div class="text-4xl mb-3">🎯</div>
+                <h4 class="font-bold text-lg mb-2">Multiple Levels</h4>
+                <p class="text-sm opacity-90">Choose from Easy, Medium, or Hard difficulty</p>
+            </div>
+            <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-opacity-30 transition duration-300">
+                <div class="text-4xl mb-3">📊</div>
+                <h4 class="font-bold text-lg mb-2">Track Progress</h4>
+                <p class="text-sm opacity-90">See your scores and improve over time</p>
+            </div>
+        </div>
+    </div>
 
-            <div class="bg-blue-50 p-6 rounded-lg">
-                <h3 class="text-2xl font-semibold text-blue-800 mb-4">Sports</h3>
-                <div class="space-y-2">
-                    {% for sport in sports %}
-                    <div class="bg-white p-3 rounded border-l-4 border-blue-400">
-                        <h4 class="font-semibold text-blue-800">{{ sport.name }}</h4>
-                        <p class="text-sm text-blue-600">{{ sport.description }}</p>
+    <!-- Topics Section -->
+    <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">
+            <span class="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Available Topics</span>
+        </h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% for sport in sports %}
+            <div class="group bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-xl border-2 border-transparent hover:border-indigo-400 transition duration-300 cursor-pointer transform hover:scale-105">
+                <div class="flex items-center mb-3">
+                    <div class="text-3xl mr-3">🏆</div>
+                    <h4 class="font-bold text-xl text-gray-800">{{ sport.name }}</h4>
+                </div>
+                <p class="text-sm text-gray-600">{{ sport.description or 'Test your knowledge in this exciting category!' }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Quiz Start Form -->
+    <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl shadow-xl p-8">
+        <div class="text-center mb-8">
+            <h3 class="text-3xl font-bold text-gray-800 mb-2">🎮 Ready to Begin?</h3>
+            <p class="text-gray-600">Select your preferences and start your quiz journey!</p>
+        </div>
+
+        <form id="quiz-form" class="max-w-3xl mx-auto" method="POST" action="{{ url_for('start_quiz') }}">
+            <div class="bg-white rounded-xl p-6 shadow-md mb-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">👤 Your Name</label>
+                        <input type="text" id="user_name" value="{{ user.full_name }}" readonly
+                               class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg bg-gray-50 text-gray-700 font-medium">
                     </div>
-                    {% endfor %}
+
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">📚 Topic</label>
+                        <select id="sport_id" required onchange="updateCategories()"
+                                class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-200">
+                            <option value="">Choose a topic...</option>
+                            {% for sport in sports %}
+                            <option value="{{ sport.id }}">{{ sport.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">🎯 Category</label>
+                        <select id="category_id" name="category_id" required
+                                class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-200">
+                            <option value="">First select a topic...</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">⚡ Difficulty</label>
+                        <select id="difficulty" name="difficulty" required
+                                class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-200">
+                            <option value="">Choose difficulty...</option>
+                            <option value="easy">🟢 Easy - Perfect for beginners</option>
+                            <option value="medium">🟡 Medium - Test your skills</option>
+                            <option value="hard">🔴 Hard - Expert challenge</option>
+                        </select>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="mt-8 bg-gray-50 p-6 rounded-lg">
-            <h3 class="text-2xl font-semibold text-gray-800 mb-6">Start Your Quiz</h3>
-            
-            <form id="quiz-form" class="grid md:grid-cols-4 gap-6" method="POST" action="{{ url_for('start_quiz') }}" >
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Your Name</label>
-                    <input type="text" id="user_name" value="{{ user.full_name }}" readonly
-                           class="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-100"
-                           placeholder="Enter your name">
-                </div>
-
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Sport</label>
-                    <select id="sport_id" required onchange="updateCategories()"
-                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
-                        <option value="">Select Sport</option>
-                        {% for sport in sports %}
-                        <option value="{{ sport.id }}">{{ sport.name }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Category</label>
-                    <select id="category_id" name="category_id" required 
-                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
-                        <option value="">Select Category</option>
-                    </select>
-                </div>
-
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Difficulty</label>
-                    <select id="difficulty" name="difficulty" required 
-                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
-                        <option value="">Select Difficulty</option>
-                        <option value="easy">Easy</option>
-                        <option value="medium">Medium</option>
-                        <option value="hard">Hard</option>
-                    </select>
-                </div>
-
-                <div class="md:col-span-4">
-                    <button type="submit" 
-                            class="w-full bg-green-600 text-white py-3 px-6 rounded-md hover:bg-green-700 transition duration-200 font-semibold text-lg">
-                        Start Quiz 🚀
-                    </button>
-                </div>
-            </form>
-        </div>
+            <button type="submit"
+                    class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-4 px-8 rounded-xl hover:from-purple-700 hover:to-indigo-700 transition duration-300 font-bold text-xl shadow-lg transform hover:scale-105 hover:shadow-xl">
+                🚀 Start Quiz Now!
+            </button>
+        </form>
     </div>
 </div>
 
