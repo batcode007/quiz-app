@@ -94,22 +94,31 @@ def create_app(host=None, port=None):
         @app.route('/register', methods=['GET', 'POST'])
         def register():
             if request.method == 'POST':
-                username = request.form['username']
-                email = request.form['email']
-                password = request.form['password']
-                full_name = request.form['full_name']
-                
-                if User.query.filter_by(username=username).first() or User.query.filter_by(email=email).first():
-                    flash('Username or email already exists')
-                    return redirect(url_for('register'))
-                
+                data = request.get_json()
+                if not data:
+                    return jsonify({'error': 'No data provided'}), 400
+
+                username = data.get('username')
+                email = data.get('email')
+                password = data.get('password')
+                full_name = data.get('full_name')
+
+                if not all([username, email, password, full_name]):
+                    return jsonify({'error': 'All fields are required'}), 400
+
+                if User.query.filter_by(username=username).first():
+                    return jsonify({'error': 'Username already exists'}), 400
+
+                if User.query.filter_by(email=email).first():
+                    return jsonify({'error': 'Email already exists'}), 400
+
                 user = User(username=username, email=email, full_name=full_name)
                 user.set_password(password)
                 db.session.add(user)
                 db.session.commit()
-                flash('Registration successful! Please log in.')
-                return redirect(url_for('login'))
-            
+
+                return jsonify({'message': 'Registration successful!'}), 200
+
             return render_template('auth/register.html')
 
         @app.route('/login', methods=['GET', 'POST'])

@@ -779,3 +779,46 @@
 2025-10-13 13:33:55,596 - INFO - 127.0.0.1 - - [13/Oct/2025 13:33:55] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
 2025-10-13 13:33:55,596 - INFO - 127.0.0.1 - - [13/Oct/2025 13:33:55] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
 2025-10-13 13:33:55,596 - INFO - 127.0.0.1 - - [13/Oct/2025 13:33:55] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-12-01 15:27:58,009 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-01 15:27:58,009 - INFO - [33mPress CTRL+C to quit[0m
+2025-12-01 15:27:58,010 - INFO -  * Restarting with stat
+2025-12-01 15:27:58,213 - WARNING -  * Debugger is active!
+2025-12-01 15:27:58,221 - INFO -  * Debugger PIN: 162-922-971
+2025-12-01 15:28:05,800 - INFO - 127.0.0.1 - - [01/Dec/2025 15:28:05] "[32mGET / HTTP/1.1[0m" 302 -
+2025-12-01 15:28:05,814 - INFO - 127.0.0.1 - - [01/Dec/2025 15:28:05] "GET /login HTTP/1.1" 200 -
+2025-12-01 15:28:05,829 - INFO - 127.0.0.1 - - [01/Dec/2025 15:28:05] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-12-01 15:28:05,829 - INFO - 127.0.0.1 - - [01/Dec/2025 15:28:05] "GET /static/images/logo.png HTTP/1.1" 200 -
+2025-12-01 15:28:05,829 - INFO - 127.0.0.1 - - [01/Dec/2025 15:28:05] "GET /static/js/app.js HTTP/1.1" 200 -
+2025-12-01 15:28:05,965 - INFO - 127.0.0.1 - - [01/Dec/2025 15:28:05] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-12-01 15:28:18,634 - INFO - 127.0.0.1 - - [01/Dec/2025 15:28:18] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-12-01 15:28:19,346 - INFO - 127.0.0.1 - - [01/Dec/2025 15:28:19] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-12-01 15:28:20,069 - INFO - 127.0.0.1 - - [01/Dec/2025 15:28:20] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-12-01 15:28:20,074 - INFO - 127.0.0.1 - - [01/Dec/2025 15:28:20] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-12-01 15:28:27,082 - INFO - 127.0.0.1 - - [01/Dec/2025 15:28:27] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2025-12-01 15:28:31,620 - INFO - 127.0.0.1 - - [01/Dec/2025 15:28:31] "GET /register HTTP/1.1" 200 -
+2025-12-01 15:28:31,632 - INFO - 127.0.0.1 - - [01/Dec/2025 15:28:31] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-12-01 15:28:31,632 - INFO - 127.0.0.1 - - [01/Dec/2025 15:28:31] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-12-01 15:28:31,632 - INFO - 127.0.0.1 - - [01/Dec/2025 15:28:31] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-12-01 15:28:31,641 - INFO - 127.0.0.1 - - [01/Dec/2025 15:28:31] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-12-01 15:28:47,881 - INFO - 127.0.0.1 - - [01/Dec/2025 15:28:47] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+2025-12-01 15:29:40,570 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/app.py', reloading
+2025-12-01 15:29:40,634 - INFO -  * Restarting with stat
+2025-12-01 15:29:40,943 - WARNING -  * Debugger is active!
+2025-12-01 15:29:40,948 - INFO -  * Debugger PIN: 162-922-971
+2025-12-01 15:29:42,826 - INFO - 127.0.0.1 - - [01/Dec/2025 15:29:42] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+2025-12-01 15:29:53,091 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/app.py', reloading
+2025-12-01 15:29:53,138 - INFO -  * Restarting with stat
+2025-12-01 15:29:53,362 - WARNING -  * Debugger is active!
+2025-12-01 15:29:53,366 - INFO -  * Debugger PIN: 162-922-971
+2025-12-01 15:29:56,240 - INFO - 127.0.0.1 - - [01/Dec/2025 15:29:56] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+2025-12-01 15:32:21,218 - INFO -  * Detected change in '/Users/namangupta/Documents/naman/quiz_app/app.py', reloading
+2025-12-01 15:32:21,272 - INFO -  * Restarting with stat
+2025-12-01 15:32:21,590 - WARNING -  * Debugger is active!
+2025-12-01 15:32:21,595 - INFO -  * Debugger PIN: 162-922-971
+2025-12-01 15:32:39,129 - INFO - 127.0.0.1 - - [01/Dec/2025 15:32:39] "POST /register HTTP/1.1" 200 -
+2025-12-01 15:32:41,156 - INFO - 127.0.0.1 - - [01/Dec/2025 15:32:41] "GET /login HTTP/1.1" 200 -
+2025-12-01 15:32:41,171 - INFO - 127.0.0.1 - - [01/Dec/2025 15:32:41] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-12-01 15:32:41,171 - INFO - 127.0.0.1 - - [01/Dec/2025 15:32:41] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-12-01 15:32:41,171 - INFO - 127.0.0.1 - - [01/Dec/2025 15:32:41] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-12-01 15:32:41,178 - INFO - 127.0.0.1 - - [01/Dec/2025 15:32:41] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
