@@ -17,15 +17,17 @@ load_dotenv()
 # Create Flask app instance
 # Use /tmp for instance path on Vercel/serverless (read-only filesystem), normal path locally
 # Check for multiple serverless indicators
-is_serverless = (
+is_serverless = bool(
     os.getenv('VERCEL') or
+    os.getenv('VERCEL_ENV') or
     os.getenv('AWS_LAMBDA_FUNCTION_NAME') or
     os.getenv('FUNCTION_NAME') or
-    not os.access('.', os.W_OK)  # Check if current directory is writable
+    os.getenv('LAMBDA_TASK_ROOT')
 )
 
+# Always use /tmp on serverless platforms (Vercel, AWS Lambda, etc.)
 if is_serverless:
-    app = Flask(__name__, instance_path='/tmp')
+    app = Flask(__name__, instance_path='/tmp', instance_relative_config=False)
 else:
     app = Flask(__name__)
 
@@ -137,12 +139,42 @@ def create_app(host=None, port=None):
 
                 user = User(username=username, email=email, first_name=first_name, last_name=last_name)
                 user.set_password(password)
+                user.generate_verification_token()
                 db.session.add(user)
                 db.session.commit()
 
-                return jsonify({'message': 'Registration successful!'}), 200
+                # Send verification email
+                from email_utils import send_verification_email
+                app_url = request.url_root.rstrip('/')
+                try:
+                    if send_verification_email(user, app_url):
+                        return jsonify({'message': 'Registration successful! Please check your email to verify your account.'}), 200
+                    else:
+                        return jsonify({'message': 'Registration successful, but email verification failed. Please contact support.'}), 200
+                except Exception as e:
+                    logging.error(f"Failed to send verification email: {e}")
+                    return jsonify({'message': 'Registration successful, but email verification failed. Please contact support.'}), 200
 
             return render_template('auth/register.html')
+
+        @app.route('/verify-email/<token>')
+        def verify_email(token):
+            user = User.query.filter_by(email_verification_token=token).first()
+
+            if not user:
+                flash('Invalid verification link.')
+                return redirect(url_for('login'))
+
+            if user.email_verified:
+                flash('Email already verified. Please log in.')
+                return redirect(url_for('login'))
+
+            user.email_verified = True
+            user.email_verification_token = None
+            db.session.commit()
+
+            flash('Email verified successfully! You can now log in.')
+            return redirect(url_for('login'))
 
         @app.route('/login', methods=['GET', 'POST'])
         def login():
@@ -159,6 +191,9 @@ def create_app(host=None, port=None):
                 
                 user = User.query.filter_by(username=username).first()
                 if user and user.check_password(password):
+                    if not user.email_verified:
+                        return jsonify({'error': 'Please verify your email address before logging in. Check your inbox for the verification link.'}), 403
+
                     session['user_id'] = user.id
                     session['username'] = user.username
                     session['full_name'] = user.full_name
@@ -175,6 +210,71 @@ def create_app(host=None, port=None):
             session.pop('username', None)
             session.pop('full_name', None)
             return redirect(url_for('login'))
+
+        @app.route('/forgot-password', methods=['GET', 'POST'])
+        def forgot_password():
+            if request.method == 'POST':
+                data = request.get_json()
+                email = data.get('email')
+
+                if not email:
+                    return jsonify({'error': 'Email is required'}), 400
+
+                user = User.query.filter_by(email=email).first()
+
+                # Always return success to prevent email enumeration
+                if user:
+                    user.generate_reset_token()
+                    db.session.commit()
+
+                    # Send password reset email
+                    from email_utils import send_password_reset_email
+                    app_url = request.url_root.rstrip('/')
+                    try:
+                        send_password_reset_email(user, app_url)
+                    except Exception as e:
+                        logging.error(f"Failed to send password reset email: {e}")
+
+                return jsonify({'message': 'If an account exists with that email, a password reset link has been sent.'}), 200
+
+            return render_template('auth/forgot_password.html')
+
+        @app.route('/reset-password/<token>', methods=['GET', 'POST'])
+        def reset_password(token):
+            user = User.query.filter_by(password_reset_token=token).first()
+
+            if not user or not user.is_reset_token_valid():
+                flash('Invalid or expired reset link. Please request a new one.')
+                return redirect(url_for('forgot_password'))
+
+            if request.method == 'POST':
+                data = request.get_json()
+                password = data.get('password')
+
+                if not password:
+                    return jsonify({'error': 'Password is required'}), 400
+
+                # Validate password strength (same as registration)
+                import re
+                if len(password) < 8:
+                    return jsonify({'error': 'Password must be at least 8 characters long'}), 400
+                if not re.search(r'[A-Z]', password):
+                    return jsonify({'error': 'Password must contain at least one uppercase letter'}), 400
+                if not re.search(r'[a-z]', password):
+                    return jsonify({'error': 'Password must contain at least one lowercase letter'}), 400
+                if not re.search(r'\d', password):
+                    return jsonify({'error': 'Password must contain at least one number'}), 400
+                if not re.search(r'[!@#$%^&*(),.?":{}|<>]', password):
+                    return jsonify({'error': 'Password must contain at least one special character'}), 400
+
+                user.set_password(password)
+                user.password_reset_token = None
+                user.password_reset_expiry = None
+                db.session.commit()
+
+                return jsonify({'message': 'Password reset successful! You can now log in.'}), 200
+
+            return render_template('auth/reset_password.html', token=token)
 
         @app.route('/admin', methods=['GET', 'POST'])
         def admin_login():

@@ -12,6 +12,10 @@ class User(db.Model):
     password_hash = db.Column(db.String(255), nullable=False)
     first_name = db.Column(db.String(50), nullable=False)
     last_name = db.Column(db.String(50), nullable=False)
+    email_verified = db.Column(db.Boolean, default=False)
+    email_verification_token = db.Column(db.String(100), unique=True)
+    password_reset_token = db.Column(db.String(100), unique=True)
+    password_reset_expiry = db.Column(db.DateTime)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     last_login = db.Column(db.DateTime)
 
@@ -21,6 +25,26 @@ class User(db.Model):
     def full_name(self):
         """Return full name from first and last name"""
         return f"{self.first_name} {self.last_name}"
+
+    def generate_verification_token(self):
+        """Generate a unique email verification token"""
+        import secrets
+        self.email_verification_token = secrets.token_urlsafe(32)
+        return self.email_verification_token
+
+    def generate_reset_token(self):
+        """Generate a password reset token that expires in 1 hour"""
+        import secrets
+        from datetime import timedelta
+        self.password_reset_token = secrets.token_urlsafe(32)
+        self.password_reset_expiry = datetime.utcnow() + timedelta(hours=1)
+        return self.password_reset_token
+
+    def is_reset_token_valid(self):
+        """Check if password reset token is still valid"""
+        if not self.password_reset_token or not self.password_reset_expiry:
+            return False
+        return datetime.utcnow() < self.password_reset_expiry
     
     def set_password(self, password):
         from werkzeug.security import generate_password_hash
